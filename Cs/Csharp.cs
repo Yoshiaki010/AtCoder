@@ -1,7 +1,7 @@
 using System;
 public class Program{
     public static void Main(){
-//以下の２行は含めない
+        //以下の２行は含めない
         var exStdIn = new System.IO.StreamReader("stdin.txt");
         System.Console.SetIn(exStdIn);
 
