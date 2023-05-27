@@ -41,7 +41,6 @@ for _ in range(m):
             all[i[j]-1].add(i[j+1]-1)
             all[i[j+1]-1].add(i[j]-1)
 
-print(all)
 for i in range(n):
     ans+=n-len(all[i])-1
 print(ans//2)
