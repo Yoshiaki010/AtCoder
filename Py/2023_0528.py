@@ -29,3 +29,9 @@ else:
                 ans="No"
     print(ans)
 '''
+
+#lv4
+n=int(input())
+for _ in range(n):
+    t=bin(int(input()))
+    print(t)
