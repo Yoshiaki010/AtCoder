@@ -63,7 +63,6 @@ for j in kansen:
         a=(human[j][0]-human[i][0])*(human[j][0]-human[i][0])
         b=(human[j][1]-human[i][1])*(human[j][1]-human[i][1])
         r=math.sqrt((a+b))
-        print(r)
         if d>=r:
             print("Yes")
             kansen+=[i]
