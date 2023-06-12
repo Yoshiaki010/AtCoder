@@ -29,27 +29,16 @@ print(ans)
 #lv3
 h,w=map(int,input().split())
 s=[]
-nosnakh=501
 
-k=0
 for _ in range(h):
-    rsnak=0
-    i=list(input())
-    for j in i:
-        if j =="#":
-            rsnak+=1
-    if rsnak!=0:
-        if nosnakh>=rsnak:
-            nosnakp=rsnak
-            nosnakh=k
-    s.append(i)
-    k+=1
+    s+=[list(input())]
 
 print(h,w)
 print(s)
-print(nosnakh)
 
-for j in range(w):
-    if s[nosnakh][j] == ".":
-       if s[h-nosnakh+1][j]=="#" or s[h-nosnakh-1][j]=="#":
-            nosnakw=i
+for i in range(h-1):
+    print(i)
+    if s[i]!=s[i+1]:
+        print(s[i])
+        for j in s[i]:
+            print(j)
