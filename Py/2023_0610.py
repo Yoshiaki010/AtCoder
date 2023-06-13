@@ -29,7 +29,7 @@ print(ans)
 #lv3
 h,w=map(int,input().split())
 s=[]
-
+ans=0,0
 for _ in range(h):
     s+=[list(input())]
 
@@ -38,7 +38,11 @@ print(s)
 
 for i in range(h-1):
     print(i)
-    if s[i]!=s[i+1]:
-        print(s[i])
-        for j in s[i]:
-            print(j)
+    for j in range(w-1):
+        print(s[i+1][j])
+        if s[i+1][j]=="#":
+            print("True")
+            if s[i][j]==".":    
+                print(s[i][j])
+                ans=i,j
+print(ans)
