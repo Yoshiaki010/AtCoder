@@ -41,7 +41,6 @@ for i in range(h-1):
     for j in range(w-1):
         print(s[i+1][j])
         if s[i+1][j]=="#":
-            print("True")
             if s[i][j]==".":    
                 print(s[i][j])
                 ans=i,j
