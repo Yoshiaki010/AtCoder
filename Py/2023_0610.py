@@ -29,6 +29,7 @@ print(ans)
 #lv3
 h,w=map(int,input().split())
 s=[]
+
 sets=set()
 nocookieh=0
 nocookie=501
@@ -39,6 +40,9 @@ for i in range(h):
     if array.count("#") < nocookie and array.count("#") >=1:
         nocookie=s.count("#")
         nocookieh=i
+ans=0,0
+for _ in range(h):
+    s+=[list(input())]
 
 print(h,w)
 print(s)
@@ -49,3 +53,12 @@ for i in s[nocookieh]:
     if s[i]!=s[i+1]:
         for j in s[i]:
             print(j)
+for i in range(h-1):
+    print(i)
+    for j in range(w-1):
+        print(s[i+1][j])
+        if s[i+1][j]=="#":
+            if s[i][j]==".":    
+                print(s[i][j])
+                ans=i,j
+print(ans)
