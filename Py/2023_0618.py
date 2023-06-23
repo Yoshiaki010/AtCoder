@@ -1,22 +1,20 @@
 t=int(input())
 for i in range(t):
+    plis=[]
+    kill=0
     n=int(input())
     p=list(map(int,input().split()))
-    psort=sorted(p)
-    ans=0
-    rank=[]
-    for i in range(n):
-        if psort == p:
-            ans+=n
-            break
-        else:
-            if p[i] < (i+1):
-                rank+=[[p[i],i+1]]
-                ans+=1
-    
-    rank.sort()
-    for i in range(len(rank)-1):
-        if rank[i][1] > rank[i+1][1]:
-            ans-=1
+    for j in range(len(p)):
+        rank=j+1
+        plis.append([rank,p[j],True])
 
+
+    for a in plis:
+        for teki in plis:
+            if a[0]<teki[0] and a[1]>teki[1]:
+                kill+=1
+                break
+    ans=n-kill
     print(ans)
+
+
