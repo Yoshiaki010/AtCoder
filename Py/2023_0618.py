@@ -16,5 +16,3 @@ for i in range(t):
                 break
     ans=n-kill
     print(ans)
-
-
