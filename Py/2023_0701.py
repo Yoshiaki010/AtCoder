@@ -44,8 +44,8 @@ for i in range(n):
     a,b=list(map(int,input().split()))
     p=a/(a+b)
     anslis+=[[i+1,p]]
-
 anslis.sort(key=lambda x: x[1],reverse=True)
+print(anslis)
 
 for i in anslis:
     print(i[0],end=" ")
