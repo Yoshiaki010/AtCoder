@@ -27,6 +27,7 @@ for i in ans:
         print(j,end="")
     print()
 """
+"""
 #lv3
 n,k=list(map(int,input().split()))
 ab=[]
@@ -47,3 +48,4 @@ for i in ab:
         ans=i[0]+1
         total-=i[1]
 print(ans)
+"""
