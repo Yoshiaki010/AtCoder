@@ -35,20 +35,15 @@ ans=1
 p=[]
 for i in range(n):
     a,b=list(map(int,input().split()))
-    if b <= k:
-        total+=b
-        ab.append([a,b])
+    ab.append([a,b])
+    total+=b
 
-ab.sort(key=lambda x:x[0],reverse=True)
+ab.sort(key=lambda x:x[0])
 
 for i in ab:
     if total<=k:
-        print(total)
-        print("break")
         break
     else:
-        print(total)
         ans=i[0]+1
         total-=i[1]
-print(ab)
 print(ans)
