@@ -23,19 +23,19 @@ for i in range(n):
     s+=[list(input())]
 
 for i in range(n):
+    if ans == "Yes":
+        break
     for j in range(n):
         if i!=j:
-            if s[j][-1] == s[i][0]:
+            if s[i][0] == s[j][-1]:
                 t=s[i]+s[j]
                 for k in range(len(t)):
                     if t[k]!=t[(len(t)+1)-(k+1)-1]:
                         break
-                else:                        
+                else:         
                     ans="Yes"
-                    break
 print(ans)
 """
-
 #lv3
 ans="No"
 abx=[[],[],[
@@ -77,5 +77,3 @@ for j in range(3):
     print(j)
     for i in abx[j]:
         print(i)
-
-print(ans)
