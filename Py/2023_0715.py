@@ -37,3 +37,16 @@ for i in range(n):
 print(ans)
 """
 #lv3
+n=int(input())
+all=set()
+ans=0
+for _ in range(n):
+    ans+=1
+    s=input()
+    liss=list(s)
+    ress=liss[::-1]
+    if s in all or "".join(ress) in all:
+        ans-=1
+    else:
+        all.add(s)
+print(ans,all)
