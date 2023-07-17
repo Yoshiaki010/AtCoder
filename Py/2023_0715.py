@@ -38,17 +38,15 @@ print(ans)
 """
 #lv3
 n=int(input())
-s=[]
-ans=[]
+all=set()
+ans=0
 for _ in range(n):
-    s.append(list(input()))
-for i in range(n):
-    for j in range(n):
-        if i < j:
-            if j not in ans:
-                sj=s[j]
-                revs=sj[::-1]
-                if s[i] == s[j] or s[i] == revs:
-                    ans+=[j]
-                    
-print(len(ans))
+    ans+=1
+    s=input()
+    liss=list(s)
+    ress=liss[::-1]
+    if s in all or "".join(ress) in all:
+        ans-=1
+    else:
+        all.add(s)
+print(ans,all)
