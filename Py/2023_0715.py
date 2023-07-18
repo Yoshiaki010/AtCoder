@@ -36,6 +36,7 @@ for i in range(n):
                         break
 print(ans)
 """
+"""
 #lv3
 n=int(input())
 all=set()
@@ -50,3 +51,5 @@ for _ in range(n):
     else:
         all.add(s)
 print(ans,all)
+"""
+#lv4
