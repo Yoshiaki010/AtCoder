@@ -1,7 +1,3 @@
-6
-a
-abc
-de
-cba
-de
-abc
+5 1 2
+1 3
+3 4

@@ -53,3 +53,16 @@ for _ in range(n):
 print(ans,all)
 """
 #lv4
+n,t,m=list(map(int,input().split()))
+ans="No"
+aisho=[]
+if n < m*2:
+    ans="No"
+
+for _ in range(m):
+    a,b=list(map(int,input().split()))
+    aisho.append([a,b])
+
+print(n,t,m)
+print(aisho)
+print(ans)
