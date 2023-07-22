@@ -38,11 +38,20 @@ print(ans)
 #lv3
 n=int(input())
 a=list(map(int,input().split()))
+adic={}
+for i in range(n):
+    adic[i+1]=[]
 m=0
 b=[]
 
 for i in range(n):
+    adic[i+1].append(a[i])
+
+while len(b) >= 1:
     
+print(adic)
+
+
 m=len(b)
 print(m)
 for i in b:
