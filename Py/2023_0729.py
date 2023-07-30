@@ -39,10 +39,10 @@ for i in range(len(a)):
             buyer+=1
         else:
             break
-    if seller >= buyer and buyer !=0:
+    if seller >= buyer:
         x=a[i]
         break
-else:
-    x=b[0]+1
+    elif buyer == 0:
+        x=b[0]+1
 print(x)
 
