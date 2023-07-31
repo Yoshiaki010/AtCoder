@@ -28,8 +28,7 @@ for i in range(n-8):
 n,m=list(map(int,input().split()))
 a=list(map(int,input().split()))
 b=list(map(int,input().split()))
-a.sort(reverse=True)
-b.sort(reverse=True)
+a.sort()
 
 for i in range(len(a)):
     seller=i+1
@@ -37,10 +36,11 @@ for i in range(len(a)):
     for j in b:
         if a[i] <= j:
             buyer+=1
-    if seller >= buyer:
+    if max(b)+1 < min(a):
+        x=max(b)+1
+        break
+    elif seller >= buyer:
         x=a[i]
         break
-    elif buyer == 0:
-        x=b[0]+1
-print(x)
 
+print(x)
