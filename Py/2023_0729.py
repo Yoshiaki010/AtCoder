@@ -37,8 +37,6 @@ for i in range(len(a)):
     for j in b:
         if a[i] <= j:
             buyer+=1
-        else:
-            break
     if seller >= buyer:
         x=a[i]
         break
