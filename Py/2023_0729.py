@@ -27,11 +27,21 @@ n,m=list(map(int,input().split()))
 a=list(map(int,input().split()))
 b=list(map(int,input().split()))
 a.sort()
+b.sort()
 
 x=max(a)
-for i in b:
-    buyer=0
-    if i >= x:
-        buyer+=1
+y=max(b)
 
-print(x)
+if x > y+1:
+    ans=y+1
+else:
+    buyer=0
+    for i in b:
+        if i > x:
+            buyer+=i
+    if buyer >= 1:
+        ans=x
+    else:        
+        ans=a[buyer-1]
+
+print(ans)
