@@ -39,9 +39,9 @@ else:
         if i > x:
             buyer+=1
     print(buyer)
-    if buyer >= 1:
+    if 1 >= buyer:
         ans=x
     else:
-        ans=a[buyer-1]
+        ans=a[-(buyer+1)]
 
 print(ans)
