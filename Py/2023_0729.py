@@ -27,7 +27,6 @@ n,m=list(map(int,input().split()))
 a=list(map(int,input().split()))
 b=list(map(int,input().split()))
 a.sort()
-b.sort()
 
 x=max(a)
 y=max(b)
@@ -38,10 +37,11 @@ else:
     buyer=0
     for i in b:
         if i > x:
-            buyer+=i
+            buyer+=1
+    print(buyer)
     if buyer >= 1:
         ans=x
-    else:        
+    else:
         ans=a[buyer-1]
 
 print(ans)
