@@ -26,10 +26,11 @@ print(a,b)
 """
 #lv3
 """
+"""
 n=int(input())
 f,s=list(map(int,input().split()))
-maxf=[]
-maxf+=[f]
+maxf=set()
+maxf.add(f)
 ans=0
 maxother=0
 maxsame=0
@@ -66,6 +67,3 @@ if maxother > maxsame:
 else:
     ans=maxsame
 print(ans)
-"""
-n=int(input())
-f,s=list(map(int,input().split()))
