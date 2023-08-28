@@ -37,26 +37,36 @@ maxsame=0
 
 
 for _ in range(n-1):
+    print(f,s)
+    print(maxsame,maxother)
+
     nf,t=list(map(int,input().split()))
-    if nf in f:
-        f.remove(nf)
+    other = s+t
+    if s >= t:
+        same = s+(t//2)
+    else:
+        same = t+(s//2)
+
+    if len(f) >= 2:
+        if nf in f:
+            f.remove(nf)
+
     if nf not in f:
-        other=s+t
         if maxother < other:
             f=set()
             f.add(nf)
+            s = t
             maxsame = other
         elif maxsame == other:
             f.add(nf)
         else:
             continue
     else:
-        if s >= t:
-            same = s+(t//2)
-        else:
-            same = t+(s//2)
         if  maxsame < same:
             maxsame = same
+            s = t
+        elif maxsame == same:
+            f.add(nf)
         else:
             continue
 
