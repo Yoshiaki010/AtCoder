@@ -28,39 +28,39 @@ print(a,b)
 """
 """
 n=int(input())
-f,s=list(map(int,input().split()))
-maxf=set()
-maxf.add(f)
+ff,s=list(map(int,input().split()))
+f=set()
+f.add(ff)
 ans=0
 maxother=0
 maxsame=0
 
+
 for _ in range(n-1):
     nf,t=list(map(int,input().split()))
-    other=s+t
-    if t > s:
-        same=t+(s//2)
-    else:
-        same=s+(t//2)
-    if nf not in maxf:
+    if nf in f:
+        f.remove(nf)
+    if nf not in f:
+        other=s+t
         if maxother < other:
-            maxother=other
-            if t > s:
-                maxf=[]
-                maxf+= [nf]
-                s = t
-            elif t == s:
-                maxf+= [nf]
-
+            f=set()
+            f.add(nf)
+            maxsame = other
+        elif maxsame == other:
+            f.add(nf)
+        else:
+            continue
     else:
+        if s >= t:
+            same = s+(t//2)
+        else:
+            same = t+(s//2)
         if  maxsame < same:
-            maxsame=same
-            if t > s:
-                maxf=[]
-                maxf+= [nf]
-                s = t
-            elif t == s:
-                maxf+= [nf]
+            maxsame = same
+        else:
+            continue
+
+print(f,s)
 
 if maxother > maxsame:
     ans=maxother
