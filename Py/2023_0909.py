@@ -31,9 +31,12 @@ import math
 c=[]
 for i in range(3):
     c+=list(map(int,input().split()))
-print(c)
+dobulenum=1
 all=math.perm(9,9)
-sad=math.perm(7,7)*(math.perm(3,3))
-ans=sad/all
-print(ans)
+sad=(dobulenum*2)*math.perm(6,6)
+ans=(all-sad)/all
+
+print(c)
+print(all-sad)
 print(sad)
+print(ans)
