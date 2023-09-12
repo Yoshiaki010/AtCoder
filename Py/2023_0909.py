@@ -33,10 +33,19 @@ for i in range(3):
     c+=list(map(int,input().split()))
 dobulenum=1
 all=math.perm(9,9)
-sad=(dobulenum*2)*math.perm(6,6)
+
+def jyunretu(x):
+    if len(c)
+sad=0
+
+for i in len(c):
 ans=(all-sad)/all
 
 print(c)
 print(all-sad)
 print(sad)
 print(ans)
+
+
+
+
