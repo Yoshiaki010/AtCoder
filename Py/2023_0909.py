@@ -33,12 +33,10 @@ for i in range(3):
     c+=list(map(int,input().split()))
 dobulenum=1
 all=math.perm(9,9)
-
-def jyunretu(x):
-    if len(c)
 sad=0
 
-for i in len(c):
+for i in range(9):
+    print(c[i])
 ans=(all-sad)/all
 
 print(c)
