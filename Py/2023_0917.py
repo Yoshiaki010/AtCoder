@@ -18,6 +18,7 @@ for _ in range(t):
             if len(a) <= n:
                 ans="Yes"
             else:
+                print
                 break
     else:
         ans="Yes"
