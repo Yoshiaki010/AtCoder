@@ -45,26 +45,16 @@ for i in range(n-1):
 print(0)
 """
 #lv4
-mino=[]
-minonum=[]
-all=0
-maxnum=0
+mino=[[],[],[]]
+j=-1
 for i in range(12):
-    i+=1
+    if i%4 == 0:
+        print(i)
+        j+=1
     p=list(input())
-    mino.append(p)
-    for j in p:
-        if j == "#":
-            all+=1
-    if i % 4 == 0:
-        minonum.append(all)
-        if maxnum < all:
-            maxnum = all
-        all=0
+    for k in range(4):
+        if p[k] == "#":
+            mino[j].append(1)
+        else:
+            mino[j].append(0)
 print(mino)
-print(minonum)
-print(maxnum)
-if sum(minonum) == 16:
-    for i in 
-else:
-    print("No")
