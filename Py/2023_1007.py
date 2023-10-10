@@ -28,6 +28,7 @@ ans=sorted(r, key=lambda x: x[1],reverse=True)
 for i in range(n):
     print(ans[i][0],end=" ")
 """
+"""
 #lv3
 n,m=map(int,input().split())
 a=list(map(int,input().split()))
@@ -59,3 +60,5 @@ for i in range(n):
             else:
                 continue
     print(ans)
+"""
+#lv4

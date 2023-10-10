@@ -46,15 +46,32 @@ print(0)
 """
 #lv4
 mino=[[],[],[]]
-j=-1
-for i in range(12):
-    if i%4 == 0:
-        print(i)
-        j+=1
-    p=list(input())
-    for k in range(4):
-        if p[k] == "#":
-            mino[j].append(1)
-        else:
-            mino[j].append(0)
-print(mino)
+blackmino=0
+whitemino=0
+ans="Unknow"
+for i in range(3):
+    minop=[]
+    for j in range(4):
+        p=list(input())
+        for k in range(4):
+            if p[k] == "#":
+                minop.append(1)
+                if (j+k)%2 == 0:
+                    blackmino+=1
+                else:
+                    whitemino+=1
+            else:
+                minop.append(0)
+    mino[i].append(minop)
+    print(mino[i])
+if blackmino+whitemino == 16:
+    minoone=mino[0]
+    minotwo=mino[1]
+    minothre=mino[2]
+    print(minoone)
+    print(minotwo)
+    print(minothre)
+    ans="Yes"
+else:
+    ans="No"
+print(ans)
