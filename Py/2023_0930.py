@@ -45,33 +45,45 @@ for i in range(n-1):
 print(0)
 """
 #lv4
-mino=[[],[],[]]
+minos=[]
+minonums=[[],[],[]]
 blackmino=0
 whitemino=0
 ans="Unknow"
 for i in range(3):
-    minop=[]
+    mino=["0b"]
+    minonum=0
+    keta=16
     for j in range(4):
         p=list(input())
         for k in range(4):
             if p[k] == "#":
-                minop.append(1)
+                mino[0]+="1"
+                minonum+=2^keta
                 if (j+k)%2 == 0:
                     blackmino+=1
                 else:
                     whitemino+=1
             else:
-                minop.append(0)
-    mino[i].append(minop)
-    print(mino[i])
+                mino[0]+="0"
+                continue
+            keta-=1
+    minos.append(mino)
+    minonums[i].append(minonum)
+    print(minonums[i])
+    print(minos[i])
+
 if blackmino+whitemino == 16:
-    minoone=mino[0]
-    minotwo=mino[1]
-    minothre=mino[2]
+    minoone=minonums[0][0]
+    minotwo=minonums[1][0]
+    minothr=minonums[2][0]
+    
     print(minoone)
     print(minotwo)
-    print(minothre)
-    ans="Yes"
+    print(minothr)
+    print( minoone & minotwo & minothr )
+    if minoone & minotwo & minothr == 256:
+        ans="Yes"
 else:
     ans="No"
 print(ans)
