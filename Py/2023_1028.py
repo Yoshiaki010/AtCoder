@@ -32,19 +32,18 @@ n,m=map(int,input().split())
 a=list(map(int,input().split()))
 a.sort()
 ans=0
-mina=a[0]
-pre=[]
-maxpre=0
-for x in a:
-    pre.append(0)
-    if x < mina+m:
-        map(+1,pre)
+left=0
+right=0
+for i in range(n):
+    if a[i] < a[0]+m-0.5:
+        right = i
     else:
-        if ans < maxpre:
-            ans=maxpre
-            maxpre=0
-print(pre)
-print(ans)
+        break
+for i in range(n-right):
+    if a[right+i]
+    if ans < right - left:
+        ans= right - left
+print(left,right,ans)
 #lv4
 """
 """
