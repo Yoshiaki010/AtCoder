@@ -1,4 +1,5 @@
 #lv2
+"""
 n=int(input())
 wlis=[]
 xlis=[]
@@ -14,3 +15,4 @@ print(xlis)
 print(wlis)
 print(mintime)
 print(maxp)
+"""
