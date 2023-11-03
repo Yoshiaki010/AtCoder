@@ -27,25 +27,27 @@ print(ans)
     
 #lv3
 """
-"""
 n,m=map(int,input().split())
 a=list(map(int,input().split()))
 a.sort()
 ans=0
 right=0
 left=0
+prezent=0
 
-while right <= n-1 and left <= right:
+while right <= n-1:
     if a[right] < a[left]-0.5+m:
-      right+=1
-      continue
+        prezent+=1
+        right+=1
     else:
-      num=right - left
       left+=1
-      right=left
-      if ans < num:
-        ans=num
+    if ans < right - left:
+        ans=right - left
+else:
+    if ans < right - left:
+        ans=right - left
 print(ans)
+"""
 #lv4
 """
 """
