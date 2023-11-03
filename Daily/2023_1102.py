@@ -42,6 +42,6 @@ print(ans)
 def number(n,m,lisa):
     lisa.append()
     number(n,m,lisa)
-    
+    if len(lisa) == 
     
 n,m=map(int,input().split())
