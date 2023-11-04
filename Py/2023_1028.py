@@ -27,32 +27,27 @@ print(ans)
     
 #lv3
 """
-"""
 n,m=map(int,input().split())
 a=list(map(int,input().split()))
 a.sort()
-ans=[]
-left=[]
-right=[n-1]
-for i in range(n):
-    i+=1
-    if a[-i] == a[right[-1]]:
-        continue
+ans=0
+right=0
+left=0
+prezent=0
+
+while right <= n-1:
+    if a[right] < a[left]-0.5+m:
+        prezent+=1
+        right+=1
     else:
-        if a[0]-1.5+m < a[-i]:
-            right.append(n-i)
-right.sort()
-j=0
-for i in range(n):
-    if j < len(right):
-        if a[right[j]]+0.5-m <= a[i]:
-            left.append(i)
-            j+=1
-        else:
-            continue
-for i in range(len(right)):
-    ans.append(right[i]-left[i]+1) 
-print(max(ans))
+      left+=1
+    if ans < right - left:
+        ans=right - left
+else:
+    if ans < right - left:
+        ans=right - left
+print(ans)
+"""
 #lv4
 """
 """
