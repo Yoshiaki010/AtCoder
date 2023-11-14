@@ -46,23 +46,19 @@ for _ in range(q):
 n,q=map(int,input().split())
 s=list(input())
 anss=[]
-left=s[0::2]
-right=s[1::2]
-if n%2 == 0:
-    left+=["X"]
-for i in range(len(right)):
-    if left[i] == right[i]:
-        anss.append(1)
+num=1
+for i in range(n-1):
+    if s[i] == s[i+1]:
+        anss.append(num)
+        num+=1
     else:
         anss.append(0)
-    if left[i+1] == right[i]:
-        anss.append(1)
-    else:
-        anss.append(0)
-print(anss)
 for _ in range(q):
     ans=0
     l,r=map(int,input().split())
-    now = anss[l-1:r-1]
-    ans= sum(now)
+    if l != r:
+        now = set(anss[l-1:r-1])
+        ans= len(now)-1
+    else:
+        ans=0
     print(ans)
