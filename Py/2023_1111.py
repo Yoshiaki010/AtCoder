@@ -26,39 +26,17 @@ print(ans)
 """
 #lv3
 """
-n,q=map(int,input().split())
-s=list(input())
-for _ in range(q):
-    ans=0
-    l,r=map(int,input().split())
-    now = s[l-1:r]
-    left=now[0::2]
-    right=now[1::2]
-    if n%2 == 0:
-        left+=["X"]
-    for i in range(len(right)):
-        if left[i] == right[i]:
-            ans+=1
-        if left[i+1] == right[i]:
-            ans+=1
-    print(ans)
 """
 n,q=map(int,input().split())
 s=list(input())
-anss=[]
-num=1
+anss=[0]
+num=0
 for i in range(n-1):
     if s[i] == s[i+1]:
-        anss.append(num)
         num+=1
-    else:
-        anss.append(0)
+    anss.append(num)
 for _ in range(q):
     ans=0
     l,r=map(int,input().split())
-    if l != r:
-        now = set(anss[l-1:r-1])
-        ans= len(now)-1
-    else:
-        ans=0
+    ans=anss[r-1]-anss[l-1]
     print(ans)
