@@ -26,7 +26,6 @@ print(ans)
 """
 #lv3
 """
-"""
 n,q=map(int,input().split())
 s=list(input())
 anss=[0]
@@ -40,3 +39,4 @@ for _ in range(q):
     l,r=map(int,input().split())
     ans=anss[r-1]-anss[l-1]
     print(ans)
+"""
