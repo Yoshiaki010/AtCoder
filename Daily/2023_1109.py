@@ -36,15 +36,24 @@ aji=[]
 for _ in range(n):
     aji.append(list(map(int,input().split())))
 ans=0
-x=0
-for y in range(n):
-    if x != y:
-        if aji[x][0] != aji[y][0]:
-            manzoku=aji[x][1]+aji[y][1]
-        else:
-            manzoku=aji[x][1]+(aji[y][1]//2)
-        if ans < manzoku:
-            ans=manzoku
-    if y == n-1:
-        x+=1
+bigcup=aji[0][0]
+bigs=aji[0][1]
+for i in range(n-1):
+    i+=1
+    if bigs <= aji[i][1]:
+        s=aji[i][1]
+        t=bigs
+        cup=bigcup
+        bigs=s
+        bigcup=aji[i][0]
+    else:
+        s=bigs
+        t=aji[i][1]
+        cup=aji[i][0]
+    if bigcup != cup:
+        manzoku=s+t
+    else:
+        manzoku=s+(t//2)
+    if ans < manzoku:
+        ans=manzoku
 print(ans)
