@@ -30,30 +30,35 @@ for x in range(n):
                 ans+=1
 print(ans)
 """
+"""
 #lv3
 n=int(input())
-aji=[]
+f=[]
 for _ in range(n):
-    aji.append(list(map(int,input().split())))
+    f.append(list(map(int,input().split())))
+f.sort( key=lambda x: (x[0], x[1]))
 ans=0
-bigcup=aji[0][0]
-bigs=aji[0][1]
-for i in range(n-1):
+bigcup=0
+bigs=0
+for i in range(n):
     i+=1
-    if bigs <= aji[i][1]:
-        s=aji[i][1]
+    if bigs <= f[-i][1]:
+        firstcup=f[-i][0]
+        s=f[-i][1]
+        secondcup=bigcup
         t=bigs
-        cup=bigcup
-        bigs=s
-        bigcup=aji[i][0]
     else:
+        firstcup=bigcup
         s=bigs
-        t=aji[i][1]
-        cup=aji[i][0]
-    if bigcup != cup:
+        secondcup=f[-i][0]
+        t=f[-i][1]
+    if firstcup != secondcup:
         manzoku=s+t
     else:
         manzoku=s+(t//2)
     if ans < manzoku:
+        bigs=s
+        bigcup=firstcup
         ans=manzoku
 print(ans)
+"""
