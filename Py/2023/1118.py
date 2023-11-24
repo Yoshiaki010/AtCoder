@@ -77,12 +77,5 @@ print(nolast)
 ans="Yes"
 for i in range(n):
     i+=1
-    if s[-i] == t[-1]:
-        continue
-    else:
-        if s[-i] in nolast:
-            continue
-        else:
-            ans="No"
-            break
+    
 print(ans)
