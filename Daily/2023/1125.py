@@ -28,16 +28,22 @@ for i in range(n):
 #lv3
 d=int(input())
 ans=0
-for i in range(d):
+while ans < 33:
+    f=d-ans
     x=1
-    while x**2 < d:
-        y=(d-ans)-(x**2)
-        if (x**2)+((y//2)**2) == d-ans:
-            print(d-ans,x**2,y**2)
-            break
-        print(x**2,(y//2)**2)
-        x+=1
+    while x**2 < f:
+        print(x)
+        y=1
+        while y**2 < f-x:
+            if (x**2)+(y**2) == f:
+                break
+            y+=1
+        else:
+            x+=1
+            continue
+        break
     else:
         ans+=1
+        continue
     break
 print(ans)
