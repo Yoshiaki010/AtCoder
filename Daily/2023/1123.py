@@ -31,16 +31,19 @@ print(ans)
 """ 
 
 """
-""" 
 #lv3
-n,m=input().split()
-s=list(input().split())
-t=list(input().split())
-
-
-
-
-
+n,m=list(map(int,input().split()))
+s=input().split()
+t=input().split()
+tn=0
+for i in range(n-1):
+  if s[i] == t[tn]:
+    tn+=1
+    print("Yes")
+  else:
+    print("No")
+print("Yes")
+""" 
 
 """
 """ 
