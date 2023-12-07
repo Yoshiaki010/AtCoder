@@ -67,23 +67,24 @@ for i in a:
 """
 #lv3
 q=int(input())
-s={}
-cs={}
+s=dict()
+maxs=0
+mins=0
 
 for i in range(q):
     lisq=input().split()
     if lisq[0] == "1":
         x = int(lisq[1])
         if x in s:
-            cs[x]=0
+            s[x]=0
         else:
-            cs[x]+=1
-        s.append(x)
+            s[x]+=1
     elif lisq[0] == "2":
         x = int(lisq[1])
         c = int(lisq[2])
-        if c < cs[x]:
-            t=s[x:c]
+        if c < s[x]:
+            s[x]=0
+        else:
+            s[x]-=c
     else:
-        s.sort()
-        print(s[-1]-s[0])
+        print(maxs-mins)
