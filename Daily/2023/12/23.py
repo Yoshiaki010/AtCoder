@@ -24,4 +24,4 @@ elif x <= a and a <= y:
 else:
     now =y-(m-(a-y)%m)
     ans =((now-x)//m)+1
-print(ans)
+print(ans)x
