@@ -13,14 +13,13 @@ for x in range(n+1):
             if x+y+z <= n:
                 print(x,y,z)
 """
-
 #lv3
-n,p=map(int,input().split())
+n,qe=map(int,input().split())
 d=[]
 x=1
 y=0
 m=0
-for i in range(p):
+for i in range(qe):
     q=input().split()
     if q[0] == "1":
         m+=1
@@ -34,15 +33,10 @@ for i in range(p):
         elif c=="D":
             y-=1
         d+=[[x,y]]
-        if n < len(d):
-            newd=d[1::]
-            d=newd
-            #d.pop(0)
     else:
         p=int(q[1])
         if p <= m:
-            lend=len(d)
-            print(d[lend-p][0],d[lend-p][1])
+            print(d[m-p][0],d[m-p][1])
         else:
             print(p-m,0)
 """
