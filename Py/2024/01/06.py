@@ -1,7 +1,8 @@
 #lv1
-"""
 s=input()
-print(s[0:len(s)-1]+"4")
+long=len(s)
+print(s[0:long-1]+"4")
+"""
 """
 
 #lv2
@@ -14,6 +15,7 @@ for x in range(n+1):
                 print(x,y,z)
 """
 #lv3
+"""
 n,qe=map(int,input().split())
 d=[]
 x=1
@@ -39,5 +41,4 @@ for i in range(qe):
             print(d[m-p][0],d[m-p][1])
         else:
             print(p-m,0)
-"""
 """
