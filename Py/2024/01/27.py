@@ -43,17 +43,25 @@ n=int(input())
 q=list(map(int,input().split()))
 a=list(map(int,input().split()))
 b=list(map(int,input().split()))
+ansa=0
+ansb=0
 maxdish=0
 for i in range(n):
     max=0
     maxa=q[i]//a[i]
     maxb=q[i]//b[i]
     if maxa < maxb:
-        max=(maxa-1)+(q[i]-a[i]*(maxa-1))//b[i]
+        maxa-=1
+        maxb=(q[i]-a[i]*(maxa))//b[i]
+        max=maxa+(q[i]-a[i]*maxa)//b[i]
     else:
-        max=(maxb-1)+(q[i]-b[i]*(maxb-1))//a[i]
-    if maxdish < max:
-        maxdish= max
-    print(max)
+        maxb-=1
+        maxa=(q[i]-b[i]*(maxb))//a[i]
+        max=maxb+(q[i]-b[i]*maxb)//a[i]
+    print(max,"a=",ansa,"b=",ansb)
+    if maxa < ansa and maxb < ansb:
+        if maxdish < max:
+            maxdish= max
+            print("Yes")
 """
 """
