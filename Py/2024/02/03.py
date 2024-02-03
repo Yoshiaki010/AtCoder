@@ -10,7 +10,6 @@ print(ans)
 """
 #lv2
 """
-"""
 h,w,n=map(int,input().split())
 t=[]
 for i in range(h):
@@ -56,3 +55,17 @@ for i in range(h):
     for j in range(w):
         print(t[i][j],end="")
     print()
+"""
+#lv3
+"""
+n=int(input())
+a=list(map(int,input().split()))
+ans=0
+for i in range(n):
+    ans+=a[i]
+    if ans < 0:
+        ans=0
+    else:
+        continue
+print(ans)
+"""

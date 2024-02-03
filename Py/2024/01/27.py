@@ -43,8 +43,8 @@ n=int(input())
 q=list(map(int,input().split()))
 a=list(map(int,input().split()))
 b=list(map(int,input().split()))
-ansa=100
-ansb=100
+ansa=0
+ansb=0
 maxdish=0
 for i in range(n):
     max=0
