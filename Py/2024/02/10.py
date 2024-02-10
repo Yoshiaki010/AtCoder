@@ -25,34 +25,29 @@ for _ in range(q):
         print(a[counta-xk])
 """
 #lv3
+
+###input
 n=int(input())
-ndic=dict()
-ndic[n]=1
 count=1
 ans=0
-how=0
+ndic=dict()
+ndic[n]=1
+
 while count >= 1:
     new=[]
-    how+=1
     for i in range(count):
-        if n[i][0] >= 2:
-            x=n[i]
-        else:
-            continue
-        ans+=x[0]*x[1]
+        x=n[i]
         count-=1
-        da=[x[0]//2,x[1]*2]
+        ans+=x*ndic[x]
+        a=x//2
+        if  
         if x[0]%2 != 0:
-            ua=[x[0]//2+1,x[1]*2]
+            new.append([x//2+1,x[1]*2])
         else:
             ua=[1]
-        lisa=[da,ua]
-        for i in range(2):
-            a=lisa[i]
-            if a[0] >= 2:
-                new.append(a)
-                count+=1
+            new.append(a)
+            count+=1
     n=new
     print(n)
-print(how)
+
 print(ans)
