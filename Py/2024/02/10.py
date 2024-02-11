@@ -27,7 +27,7 @@ for _ in range(q):
 #lv3
 
 ###input
-n=int(input())
+n=[int(input())]
 count=1
 ans=0
 ndic=dict()
@@ -40,14 +40,14 @@ while count >= 1:
         count-=1
         ans+=x*ndic[x]
         a=x//2
-        if  
+        ndic[a]=ndic[x]*2
+        count+=1
+        n.append(a)
         if x[0]%2 != 0:
-            new.append([x//2+1,x[1]*2])
+            ndic[a+1]=ndic[x]*2
+            n.append(a+1)
+            count+=1
         else:
-            ua=[1]
-            new.append(a)
             count+=1
     n=new
-    print(n)
-
 print(ans)
