@@ -26,28 +26,34 @@ for _ in range(q):
 """
 #lv3
 
-###input
+#input
 n=[int(input())]
 count=1
 ans=0
 ndic=dict()
-ndic[n]=1
+ndic[n[0]]=1
 
 while count >= 1:
     new=[]
     for i in range(count):
+        print(n)
         x=n[i]
         count-=1
         ans+=x*ndic[x]
         a=x//2
-        ndic[a]=ndic[x]*2
-        count+=1
-        n.append(a)
-        if x[0]%2 != 0:
-            ndic[a+1]=ndic[x]*2
-            n.append(a+1)
-            count+=1
+        if x%2 == 0:
+            if a >= 2:
+                ndic[a]=ndic[x]*2
+                new.append(a)
+                count+=1
         else:
-            count+=1
+            if a >= 2:
+                ndic[a+1]+=ndic[x]*2
+                ndic[a]+=ndic[x]*2
+                new.append(a+1)
+                new.append(a)
+                count+=2
+            else:
+                continue
     n=new
 print(ans)
