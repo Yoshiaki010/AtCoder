@@ -37,6 +37,7 @@ for i in range(q):
 """
     
 #lv3
+"""
 n=int(input())
 s=input()
 abcs=""
@@ -63,7 +64,6 @@ for i in range(q):
 
 for i in range(n):
     print(abcs[nums[i]],end="")
-"""
 """
 #lv4
 """
