@@ -22,7 +22,7 @@ for i in range(n):
     print()
 """
 #lv3
-print(16*0.5)
+print(6*0.5)
 n=int(input())
 for i in range(10):
     i+=1
