@@ -22,19 +22,19 @@ for i in range(n):
     print()
 """
 #lv3
-print(6*0.5)
 n=int(input())
-for i in range(10):
-    i+=1
-    ans=(10-i)**3
-    if ans < n and 10 < ans:
-        a=list(str(ans))
+x=int(((n**0.375)//1))
+for i in range(x):
+    k=(x-i)**3
+    if k <= n and 10 < k:
+        a=list(str(k))
         for i in range(len(a)):
             if a[i] != a[len(a)-i-1]:
                 break
             else:
                 continue
         else:
+            ans=k
             break
     else:
         continue
