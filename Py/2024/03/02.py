@@ -26,7 +26,7 @@ n=int(input())
 x=int(((n**0.375)//1))
 for i in range(x):
     k=(x-i)**3
-    if k <= n and 10 < k:
+    if k <= n:
         a=list(str(k))
         for i in range(len(a)):
             if a[i] != a[len(a)-i-1]:
