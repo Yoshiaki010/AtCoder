@@ -38,7 +38,7 @@ for i in range(n-1):
     w=d[i+1]//(d[0]+a+b)
     p=d[i+1]%(d[0]+a+b)
     print(p)
-"""
+ """
 #    next=(d[0]+a+b)*w
     print(s,holid[0]+next,holid[1]+next)
     if s < holid[0]+next or holid[1]+next < s:
