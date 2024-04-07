@@ -32,20 +32,17 @@ print(ans)
 n,a,b=map(int,input().split())
 d=list(map(int,input().split()))
 ans="Unknow"
-holid=[-d[0],a-d[0]]
+holid=[0,a+1]
 for i in range(n-1):
-    s=d[i+1]-d[0]
-    w=d[i+1]//(d[0]+a+b)
-    p=d[i+1]%(d[0]+a+b)
-    print(p)
- """
-#    next=(d[0]+a+b)*w
-    print(s,holid[0]+next,holid[1]+next)
-    if s < holid[0]+next or holid[1]+next < s:
+    now=d[i+1]-d[0]
+    w=d[i+1]//(a+b)
+    next=(a+b)*w
+    if holid[0]+next < now or now < holid[1]+next:
+        print(now)
+        continue
+    else:
         ans="No"
         break
-    else:
-        continue
 else:
     ans="Yes"
-print(ans)"""
+print(ans)
