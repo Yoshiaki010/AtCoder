@@ -28,32 +28,18 @@ n=int(input())
 a=list(map(int,input().split()))
 k=0
 eru=[]
-status=[]
 for i in range(n-1):
-    status.append(i)
-print(status)
-i=0
-for _ in range(n-1):
-    if status[0]+1 == a[i]:
-        status.pop(i)
+    if i+1 != a[i]:
+        k+=1
+        eru.append(i+1)
     else:
-        if a[i] != i+1:
-            j=a[i]-1
-            if a[j] == i+1:
-                status.pop(i)
-            else:
-                pass
-            k+=1
-            status.pop(j)
-            #入れ替え
-            eru.append([i+1,a[i]])
-            new=a[j]
-            a[j] = a[i]
-            a[i] = new
-        else:
-            status.pop(i)
-            continue
-    print(status)
-print(k)
+        continue
+
+k//=2
+if k%2 != 0:
+    eru.append(n)
+    k+=1
+else:
+print(k,eru)
 for i in range(k):
-    print(eru[i][0],eru[i][1])
+    print(eru[i*2],eru[(i+1)*2])
