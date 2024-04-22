@@ -37,8 +37,8 @@ for i in range(n-1):
     now=d[i+1]-d[0]
     w=d[i+1]//(a+b)
     next=(a+b)*w
-    if holid[0]+next < now or now < holid[1]+next:
-        print(now)
+    if holid[0]+next < now and now < holid[1]+next:
+        print(holid[0]+next,now,holid[1]+next)
         continue
     else:
         ans="No"
