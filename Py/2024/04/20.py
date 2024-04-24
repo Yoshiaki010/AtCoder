@@ -24,36 +24,34 @@ for i in range(q):
         status[t[i]-1] = 1
 print(ans)
 """
+#lv3
+"""
 n=int(input())
 a=list(map(int,input().split()))
+status=[]
+for i in range(n):
+    status.append([])
+
+for i in range(n):
+    status[a[i]-1].append(i)
 k=0
 eru=[]
-status=[]
 for i in range(n-1):
-    status.append(i)
-print(status)
-i=0
-for _ in range(n-1):
-    if status[0]+1 == a[i]:
-        status.pop(i)
+    new=0
+    if status[i][0] != i:
+        #入れ替え履歴追加
+        k+=1    
+        eru.append([i+1,status[i][0]+1])
+        #入れ替え
+        new = a[i]
+        a[i] = a[status[i][0]]
+        a[status[i][0]] = new
+        #ステータス更新
+        status[new-1][0]=status[i][0]
+        status[i][0] = i
     else:
-        if a[i] != i+1:
-            j=a[i]-1
-            if a[j] == i+1:
-                status.pop(i)
-            else:
-                pass
-            k+=1
-            status.pop(j)
-            #入れ替え
-            eru.append([i+1,a[i]])
-            new=a[j]
-            a[j] = a[i]
-            a[i] = new
-        else:
-            status.pop(i)
-            continue
-    print(status)
+        continue
 print(k)
 for i in range(k):
     print(eru[i][0],eru[i][1])
+"""
