@@ -55,3 +55,16 @@ print(k)
 for i in range(k):
     print(eru[i][0],eru[i][1])
 """
+#lv3別解
+"""
+"""
+n=int(input())
+a=list(map(int,input().split()))
+status=[0]*n
+k=0
+for i in range(n-1):
+    if a[i] == i+1:
+        status[i] = 1
+    else:
+        k+=1
+        
