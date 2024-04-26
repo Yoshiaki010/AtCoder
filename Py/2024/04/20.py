@@ -60,11 +60,19 @@ for i in range(k):
 """
 n=int(input())
 a=list(map(int,input().split()))
-status=[0]*n
+i=0
 k=0
-for i in range(n-1):
-    if a[i] == i+1:
-        status[i] = 1
-    else:
+tag=[]
+for _ in range(n-1):
+    new=0
+    if a[i] != i+1:
+        tag.append([i+1,a[i]])
+        new = a[a[i]-1]
+        a[a[i]-1] = a[i]
+        a[i] = new
         k+=1
-        
+    else:
+        i+=1
+print(k)
+for i in range(k):
+    print(tag[i][0],tag[i][1])
