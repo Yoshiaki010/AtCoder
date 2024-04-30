@@ -55,12 +55,15 @@ for i in range(h):
     s.append(list(input()))
 print(s)
 
+now=[]
+c=0
 #再帰呼び出し、動的計画法
-def walk(now,d):
-    new=[]
-    if now[i]+1 != h:
-        if s[i+1][j] == ".":
-            d+=1
+def walk(i,j,d):
+    if s[i][j-1] == "." and s[i][j+1] == "." and s[i-1][j] == "." and s[i+1][j] == ".":
+        d+=1
+    else:
+        pass
+    return(d)
 
 for i in range(h):
     for j in range(w):
