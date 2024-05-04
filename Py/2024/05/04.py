@@ -16,7 +16,6 @@ print(ans)
 """
 #lv2
 """
-"""
 s=input()
 t=input()
 a=[]
@@ -31,6 +30,28 @@ for i in range(c):
             now+=1
     else:
         continue
+"""
 #lv3
+"""
+n=int(input())
+g=[]
+o=[]
+t=0
+ans=0
+for i in range(n):
+    a,b=map(int,input().split())
+    g.append([a,b])
+    o.append([b-a,i])
+o.sort()
+for i in range(n):
+    a=g[o[i][1]][0]
+    b=g[o[i][1]][1]
+    if i == n-1:
+        ans+=t+b
+    else:
+        t+=a
+print(ans)
+"""
+#lv4
 """
 """
