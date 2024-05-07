@@ -52,6 +52,7 @@ for i in range(n):
         t+=a
 print(ans)
 """
+
 #lv4
 """
 """
