@@ -26,6 +26,7 @@ for i in range(n):
 print(ans)
 """
 #lv3
+"""
 n=int(input())
 a=list(map(int,input().split()))
 ans=0
@@ -42,6 +43,18 @@ for _ in range(c):
         j=i+1
     else:
         continue
+print(ans)
+"""
+n=int(input())
+a=list(map(int,input().split()))
+c=(n*(n-1))//2
+ans=0
+for i in range(n):
+    print(a[i]*(n),a[i]*(n)%10**8)
+    ans+=(a[i]*(n)%10**8)
+print((10**8)*c,ans)
+ans=(10**8)*c-ans
+#ans+=10**8
 print(ans)
 #lv4
 """
