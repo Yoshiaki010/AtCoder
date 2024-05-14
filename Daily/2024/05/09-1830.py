@@ -22,10 +22,17 @@ print(a)
 """
 """
 n=int(input())
-s=[]
+tates=[]
+yokos=[]
+nanas=[]
+all=""
 for _ in range(n):
-    s.append(input().split())
-
+    s=input()
+    all+=s
+    tates.append(s)
+print(tates,all)
+for i in range(n):
+    all[i+n*::]
 
 #lv3
 """
