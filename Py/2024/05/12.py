@@ -6,7 +6,6 @@ x=list(map(int,input().split()))
 w=[a*1+b*5+c*10+d*50+e*100+f*500,a,b,c,d,e,f]
 ans="Yes"
 
-#長すぎワロタ
 for i in range(n):
     much=x[i]
     w[0]-=much
@@ -14,6 +13,7 @@ for i in range(n):
         if much == 0:
             break
         else:
+            #if文長すぎワロタ。暇なときに簡潔化
             if 0 < much//500 and 0 != w[6]:
                 if much//500 <= w[6]:
                     mai=much//500
@@ -61,6 +61,8 @@ for i in range(n):
                     mai=w[1]
                 much-=1*mai
                 w[1]-=mai
+            else:
+            continue
     else:
         if much != 0:
             ans="No"

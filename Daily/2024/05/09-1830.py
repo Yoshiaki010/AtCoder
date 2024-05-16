@@ -26,14 +26,29 @@ tates=[]
 yokos=[]
 nanas=[]
 all=""
+#入力と縦
 for _ in range(n):
     s=input()
     all+=s
     tates.append(s)
-print(tates,all)
-for i in range(n):
-    all[i+n*::]
 
+#横
+for i in range(n):
+    print(all[i::n])
+    yokos.append(all[i::n])
+print()
+
+#斜め
+for i in range(n-5):
+    print(all[i::n+1])
+    print(i,n+1)
+    nanas.append(all[i::n+1])
+
+
+print(tates)
+print(yokos)
+print(nanas)
+print(all)
 #lv3
 """
 n=int(input())
