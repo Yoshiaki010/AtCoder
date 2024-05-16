@@ -26,6 +26,7 @@ tates=[]
 yokos=[]
 nanas=[]
 all=""
+
 #入力と縦
 for _ in range(n):
     s=input()
