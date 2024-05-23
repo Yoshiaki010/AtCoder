@@ -11,4 +11,4 @@ ans=""
 for i in range(n-1):
     if p[i]+1 == p[i+1] or p[i]-1 == p[i+1]:
         ans+=str(p[i])+" "
-#lv5  
+#lv5
