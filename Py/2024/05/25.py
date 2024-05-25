@@ -19,20 +19,8 @@ else:
 print(ans)
 """ 
 #lv2
-"""
 n,m=map(int,input().split())
 a=list(map(int,input().split()))
-ans="No"
-a.sort()
-for i in range(n-1):
-    if a[i]+1 == a[i+1]:
-        ans="Yes"
-        break
-    else:
-        ans="No"
-print(ans)
-"""
-"""
 b=list(map(int,input().split()))
 dica={}
 for i in range(n):
@@ -42,9 +30,11 @@ for i in range(n-1):
     dica[a[i+1]] += [a[i]]
 c=a+b
 c.sort()
+
+ans="No"
 for i in range(n+m-1):
-    if c[i] in a:
-        if c[i+1] in dica[c[i]]:
+    if c[i] in a and c[i+1] in a:
+        if c[i+1] in set(dica[c[i]]):
             ans="Yes"
             break
         else:
@@ -53,9 +43,19 @@ for i in range(n+m-1):
         continue
 else:
     ans="No"
+print(ans)
 """
+a.sort()
+for i in range(n-1):
+    if a[i]+1 == a[i+1]:
+        ans="Yes"
+        break
+    else:
+        ans="No"
+print(ans)
+"""
+
 #lv3
-"""
 """
 n,t=map(int,input().split())
 a=list(map(int,input().split()))
@@ -80,7 +80,6 @@ else:
     ans=-1
 print(ans)
 """
-"""    
 
 #lv4
 """
