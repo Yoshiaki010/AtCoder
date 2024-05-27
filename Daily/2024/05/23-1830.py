@@ -23,6 +23,8 @@ for i in range(m-1):
         break
 print(ans)
 """ 
+n=int(input())
+while n 
 #lv3
 """
 """ 
