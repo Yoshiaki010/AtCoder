@@ -46,18 +46,43 @@ print(ans)
 n,t=map(int,input().split())
 a=list(map(int,input().split()))
 ans=0
-tate=[0]*n
-yoko=[0]*n
-naname=[0]*2
+tate=[0]*(n+1)
+yoko=[0]*(n+1)
+naname=[0]*3
 for i in range(t):
-    tate[a[i]%n]+=1
-    yoko[a[i]%n]+=1
-    if a == a:
-        naname[0]+=1
+    tate[(a[i]-1)%n]+=1
+    yoko[(a[i]-1)//n]+=1
+    if tate[n] < tate[(a[i]-1)%n]:
+        tate[n]=tate[(a[i]-1)%n]
     else:
+        pass
+    if yoko[n] < yoko[(a[i]-1)//n]:
+        yoko[n]=yoko[(a[i]-1)//n]
+    else:
+        pass
+    if a[i]-1 == (n*n-1)//2:
+        naname[0]+=1
         naname[1]+=1
+    elif (a[i]-1)%(n+1) == 0:
+        naname[0]+=1
+    elif (a[i]-1)%(n-1) == 0:
+        naname[1]+=1
+    else:
+        pass
+    if naname[2] < naname[0]:
+        naname[2]=naname[0]
+    elif naname[2] < naname[1]:
+        naname[2]=naname[1]
+    else:
+        pass
+    if n == tate[n] or n == yoko[n] or n == naname[2]:
+        ans=i+1
+        break
+    else:
+        continue
+else:
+    ans=-1
 print(ans)
-
 #lv4
 """
 """
