@@ -31,6 +31,21 @@ while n
 
 #lv3
 """
+n=int(input())
+ans=""
+for _ in range(120):
+    if n < 1:
+        break
+    else:
+        new=""
+        if n%2 == 1:
+            n-=1
+            new="A"+ans
+        else:
+            n//=2
+            new="B"+ans
+        ans=new
+print(ans)
 """ 
 
 #lv4
