@@ -42,7 +42,6 @@ print(ans)
 
 #lv3
 """
-"""
 n,t=map(int,input().split())
 a=list(map(int,input().split()))
 ans=0
@@ -83,6 +82,8 @@ for i in range(t):
 else:
     ans=-1
 print(ans)
+"""
+
 #lv4
 """
 """
