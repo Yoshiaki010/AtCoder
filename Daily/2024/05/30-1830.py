@@ -19,7 +19,6 @@ print(ans)
 """
 #lv3
 """
-"""
 n=int(input())
 now=[1]*9
 for _ in range(n-1):
@@ -36,26 +35,30 @@ ans=0
 for i in range(9):
     ans=(ans+now[i])%998244353
 print(ans)
+"""
 #lv3
+"""
 """
 n=int(input())
 
 def cut(n,a):
-    atate=[]
-    ayoko=[]
+    tate=[]
+    yoko=[]
     for i in range(n):
         for j in range(n):
-            if a[j] == "#":
-                ayoko.append(j)
-                atate.append(i)
+            if a[i][j] == "#":
+                yoko.append(j)
+                tate.append(i)
             else:
                 continue
-    ayoko.sort()
-    new=[]
+    yoko.sort()
+    new=""
+    nx=yoko[-1]-yoko[0]+1
     for i in range(n):
-        if atate[0] <= i and i <= atate[-1]:
-            new.append(a[i][ayoko[0]:ayoko[-1]+1])
-    return(new)
+        if tate[0] <= i and i <= tate[-1]:
+            new+=a[i][yoko[0]:yoko[-1]+1]
+    return(new,nx)
+
 s=[]
 t=[]
 for _ in range(n):
@@ -63,11 +66,24 @@ for _ in range(n):
 for _ in range(n):
     t.append(input())
 
-s=cut(n,s)
-t=cut(n,t)
-print(s,t)
-"""
+s,sk=cut(n,s)
+t,tk=cut(n,t)
+print(s,t,tc,tk)
 
+for i in range(4):
+    if s == t:
+        ans="Yes"
+        break
+    else:
+        pass
+    new=""
+    for i in range():
+    new+=t[tc-tk:]+t[:tc-tk]
+    t=new
+    print(t)
+else:
+    ans="No"
+print(ans)
 #lv4
 """
 """
