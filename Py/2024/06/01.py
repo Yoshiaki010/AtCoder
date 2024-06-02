@@ -35,15 +35,25 @@ print(ans)
 """
 n,m,k=map(int,input().split())
 ans=2**n
-a=[]
-for i in range(2**n):
-    new=list(bin(i))
-    a.append(["0"]*(n-len(new[2:]))+new[2:])
-print(a,ans)
-t=[]
-for i in range(m):
-    t.append(input().split())
+a=3
+y=0
+def all(x,c):
+    x-=1
+    if 0 < x:
+        for _ in range(2):
+            c+="1"
+            all(x,c)
+    else:
+        c+=" "
+        print(c)
+    return()
 
-for _ in range(2**n):
-    for i in range(m):
-        i
+print(all(a,""))
+
+for i in range(2):
+    new=[]
+    for j in range(2):
+        for k in range(2):
+            new=[i,j,k]
+#            print(new)
+#print(a,ans)
