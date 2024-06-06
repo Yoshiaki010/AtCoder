@@ -43,32 +43,23 @@ print(ans)
 """
 #lv3
 """
-"""
 #print(2**60)
 k=int(input())
-ans=[]
-n=0
+ans=""
 for i in range(60):
-    print(k)
     if k == 0:
-        n+=1
-        ans.append(0)
         break
     else:
-        if k%2==1:
-            k-=1
-            k//=2
-            n+=1
-            ans.append(2)
+        new=""
+        if k % 2 == 0:
+            new="0"
         else:
-            k//=2
-            n+=1
-            if i != 0:
-                    ans.append(0)
-                else:
-                    continue
-for i in range(n):
-    print(ans[n-i],end="")
+            k-=1
+            new="2"
+        ans=new+ans
+        k//=2
+print(ans)
+"""
 #lv3
 """
 n=int(input())
@@ -92,7 +83,6 @@ for i in range(n):
             ans+=s[i]
 print(ans)
 """
-
 #lv4
 """
 """
