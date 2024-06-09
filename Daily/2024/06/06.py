@@ -86,3 +86,9 @@ print(ans)
 #lv4
 """
 """
+n=int(input())
+s=input()
+q=int(input())
+for i in range(q):
+    t,x,c=input().split()
+    print(t,x,c)
