@@ -34,28 +34,16 @@ print(ans)
 """
 k=int(input())
 n=""
-
-if k-1 == 0:
-    n+="#"
-elif 0 < k-1:
-    oneper=3**(k-1)//3
-    for i in range(3**(k-1)):
-        if oneper-1 < i and i < oneper*2:
-            n+="#"*oneper+"."*oneper+"#"*oneper
+print((1+1)%2)
+for i in range(3**k):
+    for j in range(3**k):
+        if i == 0 or j == 0:
+            n+="#"
+        elif 2 < i and i < 6 and 2 < j and j < 6:
+            n+="."
+        elif (i-1)%3 == 0 and (j-1)%3 == 0:
+            n+="."
         else:
-            n+="#"*oneper*3
-else:
-    pass
-
-oneper=3**k//3
-sp="."*oneper
-if k == 0:
-    print("#")
-else:
-    for i in range(3**k//oneper):
-        if  i == 1:
-            for j in range(3**(k-1)):
-                print(n[j*(3**(k-1)):(j+1)*(3**(k-1))]+sp+n[j*(3**(k-1)):(j+1)*(3**(k-1))])
-        else:
-            for j in range(3**(k-1)):
-                print(n[j*(3**(k-1)):(j+1)*(3**(k-1))]*3)
+            n+="#"
+    n+="\n"
+print(n)
