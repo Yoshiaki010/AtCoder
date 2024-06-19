@@ -41,9 +41,6 @@ for i in range(n-1):
                 now[q] = "o"
             else:
                 continue
-        else:
-            if set(now) == "o" and len(set(now)) == 1:
-                if ans 
         now+=str(j)
         print("specal:",now)
 
