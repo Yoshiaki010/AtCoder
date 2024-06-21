@@ -1,4 +1,4 @@
-#lv2
+#C lv2
 """
 n=int(input())
 ans=[]
@@ -14,8 +14,7 @@ for x in range(n+1):
 for i in range(c):
     print(ans[i])
 """
-
-#lv2
+#D lv2
 """
 import math
 n=int(input())
@@ -35,7 +34,7 @@ for i in range(n):
             continue
 print(ans)
 """
-#lv3 
+#E lv3 
 """
 n,k=map(int,input().split())
 s=[]
@@ -48,7 +47,7 @@ for i in range(n):
     else:
         print("No")
 """
-#lv3 
+#F lv3 
 """
 n=int(input())
 s=list(map(int,input().split()))
@@ -91,8 +90,7 @@ for i in range(n):
 for i in range(n):
     print(ans[i])
 """
-
-#lv4
+#G lv4
 """
 """
 n,m=map(int,input().split())
@@ -103,11 +101,32 @@ for i in range(n):
     print(g[i])
 
 def move(now,couse,ans):
-    if (couse == "U"):
-      if :
-          return()
-      else:
-          move(now[]ans+1)
+    y,x=now
+    print(x,y)
+    if couse == "U":
+        y-=1
+    elif couse == "D":
+        y+=1
+    elif couse == "L":
+        x-=1
+    else:
+        x+=1
+    if g[y][x] =="#":
+        stop(now,ans)
+    else:
+        g[y][x] = "#"
+        ans+=1
+        move([y,x],couse,ans)
+    return ans
 
-def stop():
-    
+stopplace=[]
+def stop(now,ans):
+    if now in stopplace:
+        return ans
+    else:
+        stopplace.append(now)
+        y,x=now
+        if g[y+1][x] == ".":
+            move(now,"U",ans)
+        elif g[y-1][x] == ".":
+            move(now,"D",ans)
