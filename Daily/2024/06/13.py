@@ -101,9 +101,13 @@ for _ in range(n):
     g.append(input())
 for i in range(n):
     print(g[i])
+
 def move(now,couse,ans):
     if (couse == "U"):
       if :
           return()
       else:
           move(now[]ans+1)
+
+def stop():
+    
