@@ -99,10 +99,9 @@ for _ in range(n):
     g.append(list(input()))
 
 
-def move(now,couse,work):
+def move(now,couse):
     y,x=now
-    g[y][x] = "#"
-    work+=1
+    g[y][x] = "o"
     print(y,x)
     if couse == "U":
         y-=1
@@ -113,41 +112,51 @@ def move(now,couse,work):
     else:
         x+=1
     if g[y][x] == "#":
-        print("stop",work)
-        stop(now,work)
+        print("stop")
+        stop(now)
     else:
-        work=move([y,x],couse,work)
-    print("fin",work)
-    return work
+        move([y,x],couse)
+    print("fin")
+    return ()
 
 stopplace=[]
-def stop(now,work):
+def stop(now):
     if now in stopplace:
-        return work
+        return ()
     else:
         stopplace.append(now)
         y,x=now
         if g[y-1][x] == ".":
             print("go up")
-            move([y-1,x],"U",work)
+            move([y-1,x],"U")
         if g[y+1][x] == ".":
             print("go down")
-            move([y+1,x],"D",work)
+            move([y+1,x],"D")
         if g[y][x-1] == ".":
             print("go left")
-            move([y,x-1],"L",work)
+            move([y,x-1],"L")
         if g[y][x+1] == ".":
             print("go right")
-            move([y,x+1],"R",work)
-        print("stop fin",work)
-        return work
+            move([y,x+1],"R")
+        print("stop fin")
+        return ()
 
 for i in range(n):
-    print(g[i])
+    print()
+    for j in range(m):
+        print(g[i][j],end="")
+print()
     
-ans=0
-ans+=move([1,1],"R",0)
-print(ans)
+move([1,1],"R")
+move([1,1],"D")
 
+ans=0
 for i in range(n):
-    print(g[i])
+    print()
+    for j in range(m):
+        print(g[i][j],end="")
+        if g[i][j] == "o":
+            ans+=1
+        else:
+            continue
+print(ans)
