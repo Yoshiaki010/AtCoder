@@ -30,5 +30,28 @@ print(ans)
 """
 sx,sy=map(int,input().split())
 tx,ty=map(int,input().split())
-ans=abs(sx-tx)+(abs(sy-ty))//2
+ans=abs(sy-ty)
+now=[]
+
+print(ans)
+
+if sx%2 == 0:
+    now+=[sx,sx+1]
+else:
+    now+=[sx-1,sx]
+
+print(sx,sy)
+print(tx,ty)
+print(now)
+print(now[0]-ans,now[1]+ans+1)
+
+if tx < now[0]-ans:
+    print("tx<")
+    ans+=(abs(tx-(now[0]+1)))//2
+elif now[1]+ans < tx:
+    print("<tx")
+    ans+=(abs(tx-(now[1]-1)))//2
+else:
+    print("<tx<")
+    ans+=0
 print(ans)
