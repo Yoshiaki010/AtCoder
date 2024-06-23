@@ -147,8 +147,8 @@ for i in range(n):
         print(g[i][j],end="")
 print()
     
-move([1,1],"R")
-move([1,1],"D")
+move([2,2],"R")
+move([2,2],"D")
 
 ans=0
 for i in range(n):

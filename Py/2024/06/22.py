@@ -39,9 +39,9 @@ else:
     now+=[sx-1,sx]
 
 if tx < now[0]-ans:
-    ans+=(abs(tx-(now[0]+1)))//2
+    ans+=(abs(tx-(now[0]-ans)))//2
 elif now[1]+ans < tx:
-    ans+=(abs(tx-(now[1]-1)))//2
+    ans+=(abs(tx-(now[1]+ans)))//2
 else:
     ans+=0
 print(ans)

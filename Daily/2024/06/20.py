@@ -56,9 +56,11 @@ for i in range(m):
     s_colors.append([])
 
 for i in range(n):
+
 #lv3
 """
 """
+
 #lv4
 """
 """
