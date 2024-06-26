@@ -102,8 +102,9 @@ for _ in range(n):
     g.append(list(input()))
 
 def move(now,couse):
-    y,x=now
+    x,y=now
     while g[y][x] != "#":
+        now=[x,y]
         g[y][x] = "o"
         if couse == "U":
             y-=1
@@ -113,30 +114,24 @@ def move(now,couse):
             x-=1
         else:
             x+=1
-    print("sotp")
-    stop(now)
+    stop(now,couse)
     return()
 
 stopplace=list()
-def stop(now):
-    print(now)
+def stop(now,couse):
     if now in stopplace:
         return ()
     else:
         stopplace.append(now)
-        y,x=now
-        if g[y-1][x] != "#":
-            print("U")
-#            move([y-1,x],"U")
-        if g[y+1][x] != "#":
-            print("D")
-#            move([y+1,x],"D")
-        if g[y][x-1] != "#":
-            print("L")
- #           move([y,x-1],"L")
-        if g[y][x+1] != "#":
-            print("R")
-  #          move([y,x+1],"R")
+        x,y=now
+        if g[y-1][x] != "#" and couse != "D":
+            move([x,y-1],"U")
+        if g[y+1][x] != "#" and couse != "U":
+            move([x,y+1],"D")
+        if g[y][x-1] != "#" and couse != "R":
+            move([x-1,y],"L")
+        if g[y][x+1] != "#" and couse != "L":
+            move([x+1,y],"R")
         return ()
     
 move([1,1],"R")
@@ -144,9 +139,7 @@ move([1,1],"D")
 
 ans=0
 for i in range(n):
-    print()
     for j in range(m):
-        print(g[i][j],end="")
         if g[i][j] == "o":
             ans+=1
         else:
