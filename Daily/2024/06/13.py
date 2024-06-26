@@ -93,6 +93,9 @@ for i in range(n):
 #G lv4
 """
 """
+import sys
+sys.setrecursionlimit(400000)
+
 n,m=map(int,input().split())
 g=[]
 for _ in range(n):
@@ -100,36 +103,40 @@ for _ in range(n):
 
 def move(now,couse):
     y,x=now
-    g[y][x] = "o"
-    if couse == "U":
-        y-=1
-    elif couse == "D":
-        y+=1
-    elif couse == "L":
-        x-=1
-    else:
-        x+=1
-    if g[y][x] == "#":
-        stop(now)
-    else:
-        move([y,x],couse)
-    return ()
+    while g[y][x] != "#":
+        g[y][x] = "o"
+        if couse == "U":
+            y-=1
+        elif couse == "D":
+            y+=1
+        elif couse == "L":
+            x-=1
+        else:
+            x+=1
+    print("sotp")
+    stop(now)
+    return()
 
-stopplace=[]
+stopplace=list()
 def stop(now):
+    print(now)
     if now in stopplace:
         return ()
     else:
         stopplace.append(now)
         y,x=now
         if g[y-1][x] != "#":
-            move([y-1,x],"U")
+            print("U")
+#            move([y-1,x],"U")
         if g[y+1][x] != "#":
-            move([y+1,x],"D")
+            print("D")
+#            move([y+1,x],"D")
         if g[y][x-1] != "#":
-            move([y,x-1],"L")
+            print("L")
+ #           move([y,x-1],"L")
         if g[y][x+1] != "#":
-            move([y,x+1],"R")
+            print("R")
+  #          move([y,x+1],"R")
         return ()
     
 move([1,1],"R")
@@ -137,7 +144,9 @@ move([1,1],"D")
 
 ans=0
 for i in range(n):
+    print()
     for j in range(m):
+        print(g[i][j],end="")
         if g[i][j] == "o":
             ans+=1
         else:
