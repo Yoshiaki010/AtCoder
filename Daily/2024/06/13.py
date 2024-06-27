@@ -90,7 +90,7 @@ for i in range(n):
 for i in range(n):
     print(ans[i])
 """
-#G lv4
+#G lv4 TLE
 """
 """
 import sys
@@ -139,7 +139,9 @@ move([1,1],"D")
 
 ans=0
 for i in range(n):
+    print()
     for j in range(m):
+        print(g[i][j],end="")
         if g[i][j] == "o":
             ans+=1
         else:
