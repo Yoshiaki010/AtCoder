@@ -43,7 +43,8 @@ print(ans)
 """
 #lv3
 """
-s=list(input())
+"""
+s=[0]+list(input())
 dics=dict()
 for i in range(len(s)):
     if s[i] not in dics:
@@ -56,16 +57,14 @@ for i in range(len(s)):
 ans=0
 liss=list(dics)
 n=len(liss)
-if n < 2:
-    ans=1
-else:
-    dicsnum=list(dics)
-    for i in range(n):
-        for j in range(n-1-i):
-            j+=i+1
-            ans+=dics[liss[i]]*dics[liss[j]]
+
+dicsnum=list(dics)
+for i in range(n):
+    for j in range(n-1-i):
+        j+=i+1
+        ans+=dics[liss[i]]*dics[liss[j]]
+
 print(ans)
-"""
 #lv3
 """
 n=int(input())
