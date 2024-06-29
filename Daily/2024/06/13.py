@@ -94,12 +94,13 @@ for i in range(n):
 """
 """
 import sys
-sys.setrecursionlimit(400000)
+sys.setrecursionlimit(400)
 
 n,m=map(int,input().split())
 g=[]
 for _ in range(n):
     g.append(list(input()))
+
 
 def move(now,couse):
     x,y=now
@@ -117,32 +118,35 @@ def move(now,couse):
     stop(now,couse)
     return()
 
-stopplace=list()
 def stop(now,couse):
-    if now in stopplace:
+    x,y=now
+    if g[y][x] == "!":
         return ()
     else:
-        stopplace.append(now)
-        x,y=now
+        g[y][x] = "!"
         if g[y-1][x] != "#" and couse != "D":
+            print("U")
             move([x,y-1],"U")
         if g[y+1][x] != "#" and couse != "U":
+            print("D")
             move([x,y+1],"D")
         if g[y][x-1] != "#" and couse != "R":
+            print("L")
             move([x-1,y],"L")
         if g[y][x+1] != "#" and couse != "L":
+            print("R")
             move([x+1,y],"R")
         return ()
     
 move([1,1],"R")
-move([1,1],"D")
+#move([1,1],"D")
 
 ans=0
 for i in range(n):
     print()
     for j in range(m):
         print(g[i][j],end="")
-        if g[i][j] == "o":
+        if g[i][j] == "o" or g[i][j] == "!":
             ans+=1
         else:
             continue
