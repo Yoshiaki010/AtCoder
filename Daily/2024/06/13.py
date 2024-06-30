@@ -94,7 +94,7 @@ for i in range(n):
 """
 """
 import sys
-sys.setrecursionlimit(400)
+sys.setrecursionlimit(400000)
 
 n,m=map(int,input().split())
 g=[]
@@ -125,20 +125,17 @@ def stop(now,couse):
     else:
         g[y][x] = "!"
         if g[y-1][x] != "#" and couse != "D":
-            print("U")
             move([x,y-1],"U")
         if g[y+1][x] != "#" and couse != "U":
-            print("D")
             move([x,y+1],"D")
         if g[y][x-1] != "#" and couse != "R":
-            print("L")
             move([x-1,y],"L")
         if g[y][x+1] != "#" and couse != "L":
-            print("R")
             move([x+1,y],"R")
         return ()
     
 move([1,1],"R")
+print("fin")
 #move([1,1],"D")
 
 ans=0
