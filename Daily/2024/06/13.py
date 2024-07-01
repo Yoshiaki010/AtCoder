@@ -90,8 +90,7 @@ for i in range(n):
 for i in range(n):
     print(ans[i])
 """
-#G lv4 TLE
-"""
+#G lv4
 """
 import sys
 sys.setrecursionlimit(400000)
@@ -105,7 +104,10 @@ def move(now,couse):
     x,y=now
     while g[y][x] != "#":
         now=[x,y]
-        g[y][x] = "o"
+        if g[y][x] == "!":
+            pass
+        else:
+            g[y][x] = "o"
         if couse == "U":
             y-=1
         elif couse == "D":
@@ -119,11 +121,11 @@ def move(now,couse):
 
 stopplace=list()
 def stop(now,couse):
-    if now in stopplace:
+    x,y=now
+    if g[y][x] == "!":
         return ()
     else:
-        stopplace.append(now)
-        x,y=now
+        g[y][x]="!"
         if g[y-1][x] != "#" and couse != "D":
             move([x,y-1],"U")
         if g[y+1][x] != "#" and couse != "U":
@@ -139,11 +141,10 @@ move([1,1],"D")
 
 ans=0
 for i in range(n):
-    print()
     for j in range(m):
-        print(g[i][j],end="")
-        if g[i][j] == "o":
+        if g[i][j] == "o" or g[i][j] == "!":
             ans+=1
         else:
             continue
 print(ans)
+"""
