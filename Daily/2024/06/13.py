@@ -100,6 +100,7 @@ g=[]
 for _ in range(n):
     g.append(list(input()))
 
+
 def move(now,couse):
     x,y=now
     while g[y][x] != "#":
@@ -119,13 +120,12 @@ def move(now,couse):
     stop(now,couse)
     return()
 
-stopplace=list()
 def stop(now,couse):
     x,y=now
     if g[y][x] == "!":
         return ()
     else:
-        g[y][x]="!"
+        g[y][x] = "!"
         if g[y-1][x] != "#" and couse != "D":
             move([x,y-1],"U")
         if g[y+1][x] != "#" and couse != "U":
@@ -137,7 +137,8 @@ def stop(now,couse):
         return ()
     
 move([1,1],"R")
-move([1,1],"D")
+print("fin")
+#move([1,1],"D")
 
 ans=0
 for i in range(n):
