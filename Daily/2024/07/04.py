@@ -27,12 +27,11 @@ for i in range(n):
     keyset.add(a)
     keyset.add(b)
 
-keylist=list(keyset)
 
 hashigodict=dict()
 hashigodict[1]=[]
-for i in range(len(keylist)):
-    hashigodict[keylist[i]]=[]
+for i in keyset:
+    hashigodict[i]=[]
 
 for i in range(n):
     a,b=hashigolist[i]
@@ -42,22 +41,18 @@ for i in range(n):
 print(hashigolist)
 print(hashigodict)
 
-worked=set()
-nexts=[1]
+worked={}
+nexts=[hashigodict[1]]
 ans=0
 while 0 < nexts:
-    newnext=set()
-    for now in nexts:
-        next=hashigo[now]
-        if next in newnext:
-            continue
-        else:
-            newnext.add(next)
-    next.append(hashigo[now])
-    hashigo[now]=[]
+    newnext=[]
+    for next in nexts:
+        i
+    newnext=hashigodict[nexts[0]]
+    next.append(hashigodict[nexts])
+    hashigodict[nexts]=[]
 
 print(ans)
-"""
 #lv3
 """
 """
