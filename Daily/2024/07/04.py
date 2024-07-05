@@ -45,7 +45,6 @@ print(hashigodict)
 worked=set()
 nexts=[1]
 ans=0
-"""
 while 0 < nexts:
     newnext=set()
     for now in nexts:
