@@ -29,9 +29,9 @@ for i in range(n):
 
 
 hashigodict=dict()
-hashigodict[1]={}
+hashigodict[1]=set()
 for i in keyset:
-    hashigodict[i]={}
+    hashigodict[i]=set()
 
 for i in range(n):
     a,b=hashigolist[i]
@@ -43,14 +43,13 @@ print(hashigodict)
 
 worked={}
 nexts=[hashigodict[1]]
-ans=0
 while 0 < len(nexts):
     newnext=[]
     for next in nexts:
-        print(nexts - hashigodict[next])
-        hashigodict[next]=[]
-#        newnext.append(hashigodict[i])
+        newnext.append(hashigodict[next])
+        hashigodict[next]=set()
 
+ans=0
 print(ans)
 #lv3
 """
