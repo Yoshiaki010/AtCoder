@@ -62,3 +62,6 @@ for i in range(c):
         ans=allpatern[i]
 print(ans)
 """
+#lv4
+"""
+"""
