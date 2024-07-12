@@ -18,42 +18,48 @@ for i in range(n):
 print(ans)
 """
 #lv3
+"""
 n=int(input())
-keyset=set()
-hashigolist=[]
-for i in range(n):
+
+hashigo=dict()
+hashigo[1]=set()
+for _ in range(n):
     a,b=map(int,input().split())
-    hashigolist.append([a,b])
-    keyset.add(a)
-    keyset.add(b)
+    if a in hashigo:
+        hashigo[a].add(b)
+    else:
+        hashigo[a]={b}
+    if b in hashigo:
+        hashigo[b].add(a)
+    else:
+        hashigo[b]={a}
 
-
-hashigodict=dict()
-hashigodict[1]=set()
-for i in keyset:
-    hashigodict[i]=set()
-
-for i in range(n):
-    a,b=hashigolist[i]
-    hashigodict[a].add(b)
-    hashigodict[b].add(a)
-
-print(hashigolist)
-print(hashigodict)
-
-worked={}
-nexts=[hashigodict[1]]
-while 0 < len(nexts):
-    newnext=[]
-    for next in nexts:
-        newnext.append(hashigodict[next])
-        hashigodict[next]=set()
-
+next=[1]
 ans=0
+while 0 < len(next):
+    newnext=[]
+    for now in next:
+        if ans < now:
+            ans=now
+        newnext+=list(hashigo[now])
+        hashigo[now]={}
+    next=newnext
 print(ans)
+"""
+
 #lv3
 """
 """
+h,w=map(int,input().split())
+a=[]
+for _ in range(h):
+    a.append(list(map(int,input().split())))
+h,w=map(int,input().split())
+b=[]
+for _ in range(h):
+    b.append(list(map(int,input().split())))
+print(a)
+print(b)
 
 #lv4
 """
