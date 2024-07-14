@@ -13,45 +13,36 @@ print(ans)
 """
 #lv2
 """
-abc=[]
-for _ in range(3):
-    abc.append(list(map(int,input().split())))
+n=3
+all=[]
+for i in range(n):
+    abc=list(map(int,input().split()))
+    all.append(abc)
 
-abc.sort()
-
-ax,ay=abc[0]
-bx,by=abc[1]
-cx,cy=abc[2]
+all+=all
 
 long=[]
-long.append(abs((bx-ax))**2+abs((by-ay))**2)
-long.append(abs((cx-ax))**2+abs((cy-ay))**2)
-long.append(abs((cx-bx))**2+abs((cy-by))**2)
+for i in range(n):
+    x1,y1=all[i]
+    x2,y2=all[i+1]
+    long.append(abs(x2-x1)**2+abs((y2-y1))**2)
+
+long+=long
 
 ans="Unknow"
-for i in range(3):
-    for j in range(3):
-        for k in range(3):
-            if i != j and j != k and i != k:
-                if long[i] + long[j] == long[k]:
-                    ans="Yes"
-                    break
-                else:
-                    continue
-            else:
-                continue
-        else:
-            continue
+for i in range(n):
+    if long[i]+long[i+1] == long[i+2]:
+        ans="Yes"
         break
     else:
         continue
-    break
 else:
     ans="No"
+
 print(ans)
 """
+
 #lv3
-"""
 """
 n=int(input())
 
@@ -89,6 +80,8 @@ if ans == "Yes":
         print(x[i],end=" ")
 else:
     pass
+"""
+
 #lv4
 """
 """
