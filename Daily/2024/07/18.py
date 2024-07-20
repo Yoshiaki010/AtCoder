@@ -69,7 +69,6 @@ for i in range(h):
 """
 #lv3
 """
-"""
 n,m=map(int,input().split())
 a=list(map(int,input().split()))
 f=[0]
@@ -87,10 +86,35 @@ for i in range(n-m):
     if ans < max:
         ans=max
 print(ans)
+"""
 #lv3
 """
-"""
+n=int(input())
+a=list(map(int,input().split()))
+anum=[]
+for i in range(n*3):
+    anum.append([a[i],i])
 
+anum.sort()
+mida=anum[1::3]
+ans=sorted(mida,key=lambda x: x[1])
+
+for i in range(n):
+    print(ans[i][0],end=" ")
+"""
 #lv4
 """
 """
+n=int(input())
+a=list(map(int,input().split()))
+b=list(map(int,input().split()))
+
+diff=[]
+for i in range(n):
+    diff.append(b[i]-a[i]+1)
+print(diff)
+ans=1
+for i in range(n):
+    ans*=diff[i]
+ans%=998244353
+print(ans)
