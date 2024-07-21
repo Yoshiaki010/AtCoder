@@ -30,31 +30,40 @@ diff.sort()
 ans=diff[p-1]
 print(ans)
 """
+#lv3
+"""
+"""
 import itertools
 n,k=map(int,input().split())
 s=input()
 alls = itertools.permutations(s,n)
-lists=[]
+sets=set()
 for nows in alls:
-    lists+=[nows]
+    sets.add(nows)
 
 ans=set()
-for nows in lists:
+for nows in sets:
     print(nows)
-    for i in range(n-k//2):
-        lookhere=i+k-1
-        print(nows[i],nows[lookhere],end=" ")
-        if nows[i] == nows[lookhere]:
-            lookhere-=1
-            print("Much")
+    j=0
+    for i in range(n-k+1):
+        print(i,nows[i+j],nows[i+k-(j*1)-1],end="/")
+        if nows[i+j] == nows[i+k-(j*1)-1]:
+            j+=1
+            print("Much +j")
+        else:
+            print("Reset j")
+            j=0
+        print("||")
+        if j == k-1:
+            print(j,k-1,"All much")
             break
         else:
-            print("Next",lookhere)
-            continue
+            print(j,k-1,"Not all")
     else:
+        print("This Nomuch +1")
         ans.add(nows)
     print()
+    print("Next")
+    continue
         
-for i in ans:
-    print(i)
 print(len(ans))
