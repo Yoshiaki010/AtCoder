@@ -82,7 +82,6 @@ print(ans)
 """
 #lv4
 """
-"""
 n,q=map(int,input().split())
 a=list(map(int,input().split()))
 all=[]
@@ -102,3 +101,4 @@ print(a)
 print(bk)
 print(all)
 print(sortall)
+"""
