@@ -27,16 +27,20 @@ m=max(allm)
 for i in range(m):
     t.append("")
 
+print(alls,allm)
+
 for i in range(n):
+    si=allm[i]
     for j in range(m):
-        if -1 < j and j < m[i]:
+        if -1 < j and j < si:
             t[j]+=alls[i][j]
         else:
-            if j < m[i-1]:
+            if si-1 < j and j < m:
                 t[j]+="*"
             else:
                 break
-for i in range(mmax):
+
+for i in range(m):
     print(t[i])
 
 #lv3 
