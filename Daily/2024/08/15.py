@@ -1,7 +1,16 @@
 #lv2
 """
 b=int(input())
-ans=b**(1/3)
+for i in range(15):
+    i+=1
+    a=i**i
+    if a == b:
+        ans=i
+        break
+    else:
+        continue
+else:
+    ans=-1
 print(ans)
 """
 #lv2
