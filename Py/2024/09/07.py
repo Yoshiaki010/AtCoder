@@ -30,9 +30,6 @@ print(i+1)
 
 #lv3
 """
-"""
-#print(wrong_place)
-#print(n)
 s=list(input())
 t=list(input())
 n=len(s)
@@ -63,3 +60,5 @@ for _ in range(wrong):
     wrong-=1
     s[now] = t[now]
     print("".join(s))
+"""
+#lv4　爆弾のある位置から上下左右に見た時、最初に見えた壁を破壊。ただし、端の壁は対象外
