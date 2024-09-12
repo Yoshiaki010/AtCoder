@@ -66,7 +66,6 @@ print(" ".join(a))
 """
 # lv3
 """
-"""
 n=int(input())
 a=list(map(int,input().split()))
 
@@ -82,6 +81,7 @@ for i in range(n):
 
 for i in range(n):
     print(all-adic[a[i]],end=" ")
+"""
 # lv4
 """
 """
