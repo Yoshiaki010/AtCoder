@@ -68,9 +68,20 @@ print(" ".join(a))
 """
 """
 n=int(input())
-a=list(int,input().split())
-for i in range(n):
+a=list(map(int,input().split()))
 
+b=sorted(a)
+adic=dict()
+all=0
+for i in range(n):
+    if b[i] not in adic:
+        adic[b[i]]=all+b[i]
+    else:
+        adic[b[i]]+=b[i]
+    all+=b[i]
+
+for i in range(n):
+    print(all-adic[a[i]],end=" ")
 # lv4
 """
 """
