@@ -58,20 +58,47 @@ for i in range(m):
 """
 n=int(input())
 
-g=dict()
-m=int(input())
-for _ in range(m):
+all=set()
+g=[]
+gm=int(input())
+for _ in range(gm):
     u,v=map(int,input().split())
-    g[(u,v)]=0
+    g.append((u,v))
+    all.add((u,v))
 
-h=dict()
-m=int(input())
-for _ in range(m):
+h=[]
+hm=int(input())
+for _ in range(hm):
     u,v=map(int,input().split())
-    h[(u,v)]=0
+    h.append((u,v))
+    all.add((u,v))
 
-pay=[]
+how_much=[]
 for i in range(n-1):
     a=list(map(int,input().split()))
-    pay.append(a)
+    how_much.append(a)
+
+print(how_much)
+print(g)
+print(h)
+pay=0
+for i in range(gm):
+    print(g[i],g[i] in h)
+    u,v=g[i]
+    if g[i] in h:
+        print("correct:in")
+    else:
+        print("wrong:not in")
+        print("pay",how_much[u-1][v-u-1])
+        pay+=how_much[u-1][v-u-1]
+
+for i in range(hm):
+    print(h[i],h[i] in g)
+    u,v=h[i]
+    if h[i] in g:
+        print("correct:in")
+    else:
+        print("wrong:not in")
+        print("pay",how_much[u-1][v-u-1])
+        pay+=how_much[u-1][v-u-1]
 print(pay)
