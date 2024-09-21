@@ -4,7 +4,13 @@ s=input()
 print(s.replace(".",""))
 """
 #lv2
-"""
+M = int(input())
+A = []
+for k in range(11):
+    A += [k] * (M % 3)
+    M //= 3
+print(len(A))
+print(*A)
 """
 m=int(input())
 n=0
@@ -32,6 +38,7 @@ for _ in range(20):
 print(n)
 for i in range(n):
     print(a[i],end=" ")
+"""
 #lv3
 """
 n,q=map(int,input().split())
