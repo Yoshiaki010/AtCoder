@@ -55,50 +55,90 @@ for i in range(m):
 """
 # lv3
 """
+for i in range(n):
+    pay=0
+    for j in range(gm):
+        u,v=g[j]
+        print((u+i,v+i),(u+i,v+i) in h)
+        if (u+i,v+i) in h:
+            print("correct:in")
+        else:
+            print("wrong:not in")
+            print("pay",how_much[u-1][v-u-1])
+            pay+=how_much[u-1][v-u-1]
+
+    for j in range(hm):
+        u,v=h[j]
+        print((u+i,v+i),(u+i,v+i) in g)
+        if (u+i,v+i) in g:
+            print("correct:in")
+        else:
+            print("wrong:not in")
+            print("pay",how_much[u-1][v-u-1])
+            pay+=how_much[u-1][v-u-1]
+    print(pay)
+    print()
 """
 n=int(input())
-
-all=set()
 g=[]
 gm=int(input())
 for _ in range(gm):
     u,v=map(int,input().split())
     g.append((u,v))
-    all.add((u,v))
+print("g:",g)
+
+newg=[]
+for i in range(n):
+    for j in range(n):
+        if i < j:
+            i+=1
+            j+=1
+            if (i,j) in g or (j,i) in g:
+                newg.append(True)
+            else:
+                newg.append(False)
+print("newg:",newg)
 
 h=[]
 hm=int(input())
 for _ in range(hm):
     u,v=map(int,input().split())
     h.append((u,v))
-    all.add((u,v))
+print(f"h:{h}")
 
 how_much=[]
-for i in range(n-1):
+for _ in range(n-1):
     a=list(map(int,input().split()))
     how_much.append(a)
+print(f"how:{how_much}")
 
-print(how_much)
-print(g)
-print(h)
-pay=0
-for i in range(gm):
-    print(g[i],g[i] in h)
-    u,v=g[i]
-    if g[i] in h:
-        print("correct:in")
-    else:
-        print("wrong:not in")
-        print("pay",how_much[u-1][v-u-1])
-        pay+=how_much[u-1][v-u-1]
-
-for i in range(hm):
-    print(h[i],h[i] in g)
-    u,v=h[i]
-    if h[i] in g:
-        print("correct:in")
-    else:
-        print("wrong:not in")
-        print("pay",how_much[u-1][v-u-1])
-        pay+=how_much[u-1][v-u-1]
-print(pay)
+for i in range(n):
+    print(f"start:{i}")
+    newh=[]
+    pay=0
+    f=0
+    for j in range(n):
+        newh=False
+        for k in range(n):
+            if j < k:
+                u=(i+j)%(n)+1
+                v=(i+k)%(n)+1
+                print(f"u,v:({u},{v})",end=" ")
+                if (u,v) in h or (v,u) in h:
+                    newh=True
+                else:
+                    newh=False
+            else:
+                continue
+            print(f)
+            if newh == newg[f]:
+                continue
+            else:
+                pay+=how_much[j][k-j]
+            f+=1
+        print()
+    print(pay)
+    print(newh)
+    print("fin")
+    print()
+print(f)
