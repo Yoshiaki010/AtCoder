@@ -79,6 +79,7 @@ for i in range(n):
     print(pay)
     print()
 """
+"""
 n=int(input())
 g=[]
 gm=int(input())
@@ -142,3 +143,4 @@ for i in range(n):
     print("fin")
     print()
 print(f)
+"""

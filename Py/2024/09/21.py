@@ -5,7 +5,6 @@ print(s.replace(".",""))
 """
 #lv2
 """
-"""
 m = int(input())
 a = []
 n = 0
@@ -30,6 +29,7 @@ for _ in range(20):
         break
 print(n)
 print(*a)
+"""
 #lv3
 """
 n,q=map(int,input().split())
