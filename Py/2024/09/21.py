@@ -4,41 +4,32 @@ s=input()
 print(s.replace(".",""))
 """
 #lv2
-M = int(input())
-A = []
-for k in range(11):
-    A += [k] * (M % 3)
-    M //= 3
-print(len(A))
-print(*A)
 """
-m=int(input())
-n=0
-a=[]
-f=0
+"""
+m = int(input())
+a = []
+n = 0
 for _ in range(20):
-    f+=1
-    if 0 < m % 3:
-        n+=1
-        a.append(0)
-        m-=1
-    else:
-        for i in range(9):
-            if 3**(9-i) < m+1:
-                n+=1
-                a.append(9-i)
-                m-=3**(9-i)
-                break
-            else:
+    if m % 3 == 0:
+        for i in range(10):
+            ai = 10 - i
+            if m < 3 ** ai:
                 continue
-    if m < 1:
-        break
+            else:
+                n+= 1
+                m-= 3 ** ai
+                a+= [ai]
+                break
     else:
+        n += 1
+        m -= 1
+        a += [0]
+    if 0 < m:
         continue
+    else:
+        break
 print(n)
-for i in range(n):
-    print(a[i],end=" ")
-"""
+print(*a)
 #lv3
 """
 n,q=map(int,input().split())
@@ -56,6 +47,7 @@ for i in range(q):
         i+=int(x)-3
         if "".join(s[i:i+3]) == "ABC":
             all-=1
+            break
         else:
             continue
     
@@ -65,6 +57,7 @@ for i in range(q):
         i+=int(x)-3
         if "".join(s[i:i+3]) == "ABC":
             all+=1
+            break
         else:
             continue
     print(all)
