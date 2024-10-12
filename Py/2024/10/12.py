@@ -65,7 +65,9 @@ ans = 0
 for i in range(kindn):
     print(s[i])
     for j in range(bothnum[s[i]]-1):
-        print(((bothpos[s[i]][bothnum[s[i]]-1]) , ((bothpos[s[i]][bothnum[s[i]]-2-j]) + 1)))
+        bottom=bothpos[s[i]][-1]
+        top=bothpos[s[i]][j]
+        print(top,bottom,bottom-top-1)
         ans += (bothpos[s[i]][bothnum[s[i]]-1]) - (bothpos[s[i]][bothnum[s[i]]-2-j] + 1) - j
     print("Fin")
 print(ans)
