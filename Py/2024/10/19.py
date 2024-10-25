@@ -52,4 +52,35 @@ print(ans)
 """
 #lv3
 """
+n = int(input())
+a = list(map(int,input().split()))
+b = list(map(int,input().split()))
+
+a.sort(reverse=True)
+b.sort(reverse=True)
+
+ans = 0
+big = 0
+okbox = 0
+for i in range(n):
+    if okbox == n-1:
+        ans = a[i]
+        break
+    else:
+        if a[i] < b[big] + 1:
+            big += 1
+            okbox += 1
+        else:
+            if ans < a[i]:
+                ans = a[i]
+            else:
+                continue
+
+if okbox == n-1:
+    print(ans)
+else:
+    print(-1)
+"""
+#lv4
+"""
 """
