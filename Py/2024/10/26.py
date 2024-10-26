@@ -54,60 +54,59 @@ print(ans)
 
 #lv3
 n,m = map(int,input().split())
-sans = []
-for i in range(n):
-    sans.append(["."]*n)
+roukpos = set()
+cantputpos = set()
 
 ans = n**2
-for i in range(8):
+for i in range(m):
     a,b = map(int,input().split())
     a -= 1
     b -= 1
-    if sans[a][b] != "n":
-        if sans[a][b] == ".":
-            ans -= 1
-        sans[a][b] = "n"
-        if -1 < a + 2 and a + 2 < n and -1 < b + 1 and b + 1 < n:
-            if sans[a + 2][b + 1] == ".":
-                sans[a + 2][b + 1] = "#"
-                ans -= 1
-        if -1 < a + 1 and a + 1 < n and -1 < b + 2 and b + 2 < n:
-            if sans[a + 1][b + 2] == ".":
-                sans[a + 1][b + 2] = "#"
-                ans -= 1
-        if -1 < a - 1 and a - 1 < n and -1 < b + 2 and b + 2 < n:
-            if sans[a - 1][b + 2] == ".":
-                sans[a - 1][b + 2] = "#"
-                ans -= 1
-        if -1 < a - 2 and a - 2 < n and -1 < b + 1 and b + 1 < n:
-            if sans[a - 2][b + 1] == ".":
-                sans[a - 2][b + 1] = "#"
-                ans -= 1            
-        if -1 < a - 2 and a - 2 < n and -1 < b - 1 and b - 1 < n:
-            if sans[a - 2][b - 1] == ".":
-                sans[a - 2][b - 1] = "#"
-                ans -= 1
-        if -1 < a - 1 and a - 1 < n and -1 < b - 2 and b - 2 < n:
-            if sans[a - 1][b - 2] == ".":
-                sans[a - 1][b - 2] = "#"
-                ans -= 1
-        if -1 < a + 1 and a + 1 < n and 0 < b - 2 and b - 2 < n:
-            if sans[a + 1][b - 2] == ".":
-                sans[a + 1][b - 2] = "#"
-                ans -= 1
-        if -1 < a + 2 and a + 2 < n and -1 < b - 1 and b - 1 < n:
-            if sans[a + 2][b - 1] == ".":
-                sans[a + 2][b - 1] = "#"
-                ans -= 1
-    else:
+    if (a,b) in roukpos:
         continue
-aans = 0
-for i in range(n):
-    for j in range(n):
-        if sans[i][j] == ".":
-            aans += 1
-    print(sans[i])
-print(aans)
+    else:
+        roukpos.add((a,b))
+        if (a,b) not in cantputpos:
+            cantputpos.add((a,b))
+            ans -= 1
+        if -1 < a + 1 and a + 1 < n:
+            if 0 < b - 2 and b - 2 < n:
+                if (a + 1 , b - 2) not in cantputpos:
+                    cantputpos.add((a + 1,b - 2))
+                    ans -= 1
+            if -1 < b + 2 and b + 2 < n:
+                if (a + 1 , b + 2) not in cantputpos:
+                    cantputpos.add((a + 1,b + 2))
+                    ans -= 1
+        if -1 < a + 2 and a + 2 < n:
+            if -1 < b + 1 and b + 1 < n:
+                if (a + 2 , b + 1) not in cantputpos:
+                    cantputpos.add((a + 2,b + 1))
+                    ans -= 1
+            if -1 < b - 1 and b - 1 < n:
+                if (a + 2 , b - 1) not in cantputpos:
+                    cantputpos.add((a + 2,b - 1))
+                    ans -= 1
+        if -1 < a - 1 and a - 1 < n:
+            if -1 < b + 2 and b + 2 < n:
+                if (a - 1 , b + 2) not in cantputpos:
+                    cantputpos.add((a - 1,b + 2))
+                    ans -= 1
+            if -1 < b - 2 and b - 2 < n:
+                if (a - 1 , b - 2) not in cantputpos:
+                    cantputpos.add((a - 1,b - 2))
+                    ans -= 1
+        if -1 < a - 2 and a - 2 < n:
+            if -1 < b + 1 and b + 1 < n:
+                if (a - 2 , b + 1) not in cantputpos:
+                    cantputpos.add((a - 2,b + 1))
+                    ans -= 1
+            if -1 < b - 1 and b - 1 < n:
+                if (a - 2 , b - 1) not in cantputpos:
+                    cantputpos.add((a - 2,b - 1))
+                    ans -= 1
+
 print(ans)
 """
+
 """
