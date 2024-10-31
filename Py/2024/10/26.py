@@ -54,7 +54,7 @@ print(ans)
 
 #lv3
 n,m = map(int,input().split())
-roukpos = set()
+knightpos = set()
 cantputpos = set()
 
 ans = n**2
@@ -62,51 +62,63 @@ for i in range(m):
     a,b = map(int,input().split())
     a -= 1
     b -= 1
-    if (a,b) in roukpos:
+    if (a,b) in knightpos:
         continue
     else:
-        roukpos.add((a,b))
+        print("rouk:",a,b)
+        knightpos.add((a,b))
         if (a,b) not in cantputpos:
+#            print("-1")
             cantputpos.add((a,b))
             ans -= 1
         if -1 < a + 1 and a + 1 < n:
             if 0 < b - 2 and b - 2 < n:
                 if (a + 1 , b - 2) not in cantputpos:
+#                    print(a + 1 , b - 2)
                     cantputpos.add((a + 1,b - 2))
                     ans -= 1
             if -1 < b + 2 and b + 2 < n:
                 if (a + 1 , b + 2) not in cantputpos:
+                    print(a + 1 , b + 2)
                     cantputpos.add((a + 1,b + 2))
                     ans -= 1
         if -1 < a + 2 and a + 2 < n:
             if -1 < b + 1 and b + 1 < n:
                 if (a + 2 , b + 1) not in cantputpos:
+#                    print(a + 2 , b + 1)
                     cantputpos.add((a + 2,b + 1))
                     ans -= 1
             if -1 < b - 1 and b - 1 < n:
                 if (a + 2 , b - 1) not in cantputpos:
+#                    print(a + 2 , b - 1)
                     cantputpos.add((a + 2,b - 1))
                     ans -= 1
         if -1 < a - 1 and a - 1 < n:
             if -1 < b + 2 and b + 2 < n:
                 if (a - 1 , b + 2) not in cantputpos:
+                    print(a - 1 , b + 2)
                     cantputpos.add((a - 1,b + 2))
                     ans -= 1
             if -1 < b - 2 and b - 2 < n:
                 if (a - 1 , b - 2) not in cantputpos:
+                    print(a - 1 , b - 2)
                     cantputpos.add((a - 1,b - 2))
                     ans -= 1
         if -1 < a - 2 and a - 2 < n:
             if -1 < b + 1 and b + 1 < n:
                 if (a - 2 , b + 1) not in cantputpos:
+                    print(a - 2 , b + 1)
                     cantputpos.add((a - 2,b + 1))
                     ans -= 1
             if -1 < b - 1 and b - 1 < n:
                 if (a - 2 , b - 1) not in cantputpos:
+                    print(a - 2 , b - 1)
                     cantputpos.add((a - 2,b - 1))
                     ans -= 1
 
+#print(knightpos)
 print(ans)
 """
+
 
 """
