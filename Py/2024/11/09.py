@@ -41,13 +41,12 @@ next = 1
 ans = 0
 for i in range(m):
     if x[i] > next:
-        ans = -1
         break
     else:
         amari = next - x[i]
         next += a[i]
         rock = a[i] + amari
-        ans -= ((amari+1) * amari) // 2
+        ans -= (amari * (amari-1)) // 2
         ans += (rock * (rock-1)) // 2
 if next - 1 != n:
     ans = -1
