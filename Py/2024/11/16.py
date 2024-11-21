@@ -27,16 +27,29 @@ print(*a)
 #lv3
 """
 """
-import time
 n,k = map(int,input().split())
-s = list(input())
+s = input()
+fast = list(s[0])
+mid = []
+target = []
+last = []
+onenum = 0
+front = s[0]
 
-ans = 0
+for i in range(n-1):
+    i += 1
+    if s[i] == "0" and front == "1":
+        onenum += 1
+    if onenum < k-1:
+        fast.append(s[i])
+    elif onenum < k and s[i] != "1":
+        mid.append(s[i])
+    elif s[i] == "1" and onenum == k-1:
+        target.append(s[i])
+    else:
+        last.append(s[i])
+    front = s[i]
 
-now = s[0]
-start = time.perf_counter()
-for i in range(5 * (10**5)):
-    ans += 1
-end = time.perf_counter()
-print('{:.2f}'.format((end-start)/60))
+ans = fast + target + mid + last
+ans = "".join(ans)
 print(ans)
