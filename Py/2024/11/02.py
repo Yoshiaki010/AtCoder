@@ -1,5 +1,5 @@
-#lv1
 """
+#lv1
 a = list(map(int,input().split()))
 n = len(a)
 color = []
