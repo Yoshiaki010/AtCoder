@@ -1,10 +1,10 @@
-"""
 #lv1
+"""
 a = list(map(int,input().split()))
-n = len(a)
 color = []
 ans = 0
-for i in range(n):
+
+for i in range(4):
     if a[i] not in color:
         color.append(a[i])
     else:
@@ -12,7 +12,6 @@ for i in range(n):
         color.remove(a[i])
 print(ans)
 """
-
 #lv2
 """
 n = int(input())
