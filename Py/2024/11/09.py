@@ -37,19 +37,23 @@ n,m = map(int,input().split())
 x = list(map(int,input().split()))
 a = list(map(int,input().split()))
 
-next = 1
+box = [(x[i],a[i]) for i in range(m)]
+
+box.sort()
+s = box[1][1] - 1
+k = (box[1][0] - box[0][0]) -1
+amari = 0
+
 ans = 0
-for i in range(m):
-    if x[i] > next:
-        break
-    else:
-        amari = next - x[i]
-        next += a[i]
-        rock = a[i] + amari
-        ans -= (amari * (amari-1)) // 2
-        ans += (rock * (rock-1)) // 2
-if next - 1 != n:
-    ans = -1
+for i in range(m-1):
+    s = box[i][1] - 1 + amari
+    k = (box[i + 1][0] - box[i][0]) -1
+    amari = s - k
+    ans += k * (k + 1) // 2
+    ans += (s - k) * (k + 1)
+amari += box[-1][1] -1
+if amari == n - box[-1][0]:
+    ans += amari * (amari + 1) // 2
 else:
-    pass
+    ans = -1
 print(ans)
