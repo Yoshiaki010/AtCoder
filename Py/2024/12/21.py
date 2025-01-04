@@ -16,7 +16,6 @@ print(ans)
 """
 #lv2
 """
-"""
 h,w,y,x = map(int,input().split())
 s = []
 for _ in range(h):
@@ -47,6 +46,7 @@ for i in range(len(t)):
         pass
 
 print(*now)
+"""
 #lv3
 """
 """
