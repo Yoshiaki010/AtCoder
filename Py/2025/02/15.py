@@ -17,7 +17,6 @@ print(ans)
 """
 #lv2
 """
-"""
 s = input()
 
 ans = 0
@@ -29,6 +28,25 @@ for k in range(len(s)//2):
         else:
             continue
 print(ans)
+"""
 #lv3
 """
+n,m = map(int,input().split())
+ans = 0
+lines = {}
+for i in range(n):
+    lines[i+1] = []
+
+for i in range(m):
+    u,v = map(int,input().split())
+    if u == v:
+        ans += 1
+    else:
+        if v in lines[u]:
+            ans += 1
+        else:
+            lines[u].append(v)
+            lines[v].append(u)
+
+print(ans)
 """
