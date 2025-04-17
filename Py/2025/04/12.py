@@ -30,25 +30,39 @@ print(erro)
 """
 #lv3
 """
-"""
 n,k = map(int,input().split())
-ans = 0
-front_k = []
-front_num = 0
-front_all = 0
+next = 0
+a = []
 
 for i in range(n + 1):
-    front_num += 1
+    next %= 10 ** 9
     if i < k:
-        front_k.append(1)
-        front_all += 1
+        next += 1
+        a.append(1)
     else:
-        front_k.append(front_all)
-        front_all += front_all - front_k[0]
-        front_k = front_k[1:]
-#    print(front_k)
-
-print(front_k[-1])
+        a.append(next)
+        next += next - a[i - k]
+    
+print(a[n])
+"""
 #lv4
 """
 """
+n,k = map(int,input().split())
+s = input()
+o_num = 0
+for i in range(n):
+    if s[i] == "o":
+        o_num += 1
+front = s[0]
+ans = [s[0]]
+for i in range(n - 1):
+    if front == "o":
+        front = "."
+    else:
+        front = s[i + 1]
+        if s[i + 1] == "o":
+            ans[i] = "."
+    ans.append(front)
+
+print(*ans)
