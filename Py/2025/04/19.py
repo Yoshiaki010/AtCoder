@@ -26,30 +26,35 @@ for _ in range(Q):
 """
 #lv3
 """
-"""
 n,m = map(int,input().split())
-cook_dict = {}
+cook_list = []
 for i in range(m):
-    cook = tuple(map(int,input().split()))
-    print(cook[1:])
-    if cook[1:] in cook_dict:
-        cook_dict[cook[1:]].append(i + 1)
-    else:
-        cook_dict[cook[1:]] = [i + 1]
-print(cook_dict)
+    cook = list(map(int,input().split()))
+    k = cook[0]
+    a = cook[1:]
+    cook_list.append([k,a])
 
-ans = []
-can_eat = []
 b = list(map(int,input().split()))
+veg_dict = dict()
 for i in range(n):
-    if b[i] in can_eat:
-        pass
-    else:
-        can_eat.append(b[i])
-    q = tuple(can_eat)
-    print(q)
-    if q in cook_dict:
-        ans.append(cook_dict[q])
-    else:
-        ans.append([])
-print(ans)
+    veg_dict[b[i]] = i
+
+eat_days = [0] * n
+for i in range(m):
+    k,a = cook_list[i]
+    eat_day = -1
+    for j in range(k):
+        if veg_dict[a[j]] != -1:
+            if eat_day < veg_dict[a[j]]:
+                eat_day = veg_dict[a[j]]
+            else:
+                continue
+        else:
+            break
+    eat_days[eat_day] += 1
+
+ans = 0
+for i in range(n):
+    ans += eat_days[i]
+    print(ans)
+"""
