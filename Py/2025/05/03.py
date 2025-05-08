@@ -58,25 +58,55 @@ print(ans)
 """
 N,M = map(int,input().split())
 
-m_dict = dict()
-for i in range(M):
-    m_dict[i + 1] = set()
-m_num = [0 for i in range(M)]
+n_num = [0] * N
+n_dict = dict()
+for i in range(N):
+    n_dict[ i + 1 ] = []
+
+def check(s,t):
+    if 1 < n_num[s - 1]:
+        ans = True
+    else:
+        n_dict[s].append(t)
+        n_num[s - 1] += 1
+        ans = False
+    return ans
 
 ans = "No"
 for _ in range(M):
     a,b = map(int,input().split())
-    if b not in m_dict[a]:
-        m_dict[a].add(b)
-        m_dict[b].add(a)
-        m_num[a - 1] += 1    
-        m_num[b - 1] += 1
-    if 2 < m_num[a - 1] or 2 < m_num[b - 1]:
-        ans = "No"
+    if check(a,b) or check(b,a):
         break
     else:
         continue
 else:
-    ans = "Yes"
+    next = set(n_dict[1])
 
+    ok_n = set()
+    ok_n.add(1)
+    ok_n_num = 1
+    next_num = 1
+    p = 0
+    while 0 < next_num:
+        next_num = 0
+        new_next = set()
+        for n in next:
+            ok_n.add(n)
+            ok_n_num += 1
+            for a in n_dict[n]:
+                if a in ok_n or a in next or a in new_next:
+                    p += 1
+                    continue
+                else:
+                    new_next.add(a)
+                    next_num += 1
+                    p += 1
+        next = new_next
+
+    if ok_n_num == N:
+        ans = "Yes"
+    else:
+        ans = "No"
 print(ans)
+"""
+"""
