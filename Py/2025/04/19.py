@@ -19,7 +19,7 @@ head = 0
 for _ in range(Q):
     q = input().split()
     if q[0] == "1":
-        line.append(int(q[1]))
+        line.append( int(q[1]) )
     else:
         print(line[head])
         head += 1
@@ -30,6 +30,14 @@ n,m = map(int,input().split())
 cook_list = []
 for i in range(m):
     cook = list(map(int,input().split()))
+<<<<<<< HEAD
+    print(tuple(cook[1:]))
+#    cook_dict[] = i + 1
+print(cook_dict)
+"""
+
+print("helo")
+=======
     k = cook[0]
     a = cook[1:]
     cook_list.append([k,a])
@@ -58,3 +66,4 @@ for i in range(n):
     ans += eat_days[i]
     print(ans)
 """
+>>>>>>> 1c1851acea25f2f6fca1bcc90be345c9e6ca68b1
