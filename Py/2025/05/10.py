@@ -56,15 +56,3 @@ for i in range(N):
     ans += S[i] * A[i]
 print(ans)
 """
-"""
-a = 0
-for _ in range(2):
-    for _ in range(2):
-        for _ in range(2):
-            for _ in range(2):
-                for _ in range(2):
-                    for _ in range(2):
-                        for _ in range(2):
-                            a += 1
-print(a)
-"""
