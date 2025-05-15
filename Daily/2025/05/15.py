@@ -67,19 +67,26 @@ print(wallet[-1])
 """
 """
 N = int(input())
-N = 2 ** 60
 
-nisinsuu = []
-for _ in range(60):
-    if N % 2 == 0:
-        nisinsuu.append(N)
+bin = []
+bin_n = 0
+A = N
+while 0 < A:
+    bin.append(A % 2)
+    bin_n += 1
+    A //= 2
+
+R = []
+next = []
+k = bin_n - 1
+for _ in range(bin_n - 1):
+    if bin[k - 1] == 0:
+        R.append(2 ** k)
     else:
-        pass
-    N //= 2
+        next.append(2 ** k - 1)
+    k -= 1
 
-print(nisinsuu,len(nisinsuu))
-
-    
+print(R,next)
 # lv3
 """
 X = input().split()
