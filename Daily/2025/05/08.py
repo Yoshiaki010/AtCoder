@@ -1,6 +1,5 @@
 #lv2
 """
-"""
 N = int(input())
 name_dict = {}
 
@@ -13,8 +12,11 @@ def add_to_dict(str):
 p = []
 for _ in range(N):
     s,t = input().split()
-    add_to_dict(s)
-    add_to_dict(t)
+    if s == t:
+        add_to_dict(s)
+    else:
+        add_to_dict(s)
+        add_to_dict(t)
     p.append([s,t])
 
 ans = "Unknow"
@@ -31,4 +33,16 @@ for i in range(N):
 else:
     ans = "Yes"
 
+print(ans)
+"""
+#lv2
+ans = 0
+S,T = map(int,input().split())
+for a in range(90):
+    for b in range(90):
+        for c in range(90):
+            if a + b + c <= S and a * b * c <= T:
+                ans += 1
+            else:
+                continue
 print(ans)

@@ -15,6 +15,7 @@ u = input()
 tn = len(t)
 un = len(u)
 
+print(t,u)
 def serch(a,b,n):
     same = False
     for i in range(n):
