@@ -65,7 +65,6 @@ print(wallet[-1])
 """
 # lv3
 """
-"""
 N = int(input())
 
 bin = []
@@ -87,8 +86,35 @@ for _ in range(bin_n - 1):
     k -= 1
 
 print(R,next)
+"""
 # lv3
 """
-X = input().split()
-print(26 ** 10)
+"""
+X = input()
+print(X)
+
+a = ["b","a","a","b","c","d","e","f"]
+print(sorted(a, key = X.index))
+"""
+N = int(input())
+s_list = []
+list_s = []
+for _ in range(N):
+    s = input()
+    s_list.append(s)
+    list_s += list(s)
+
+set_s = set(list_s)
+print(set_s)
+
+keyes = ""
+for i in range(26):
+    if X[i] in set_s:
+        keyes += X[i]
+    else:
+        continue
+print(keyes)
+
+anses = sorted(s_list, key = keyes.index)
+print(anses)
 """
