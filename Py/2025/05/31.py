@@ -1,3 +1,6 @@
+b = (1,2,3)
+print(b[0])
+
 #lv1
 """
 N,S = map(int,input().split())
