@@ -35,13 +35,6 @@ print(*ans)
 """
 #lv3
 """
-def check(i,A,B):
-    if i + A < B:
-        i = i + A
-    else:
-        i = (i + A) % B
-    return i
-
 N,Q = map(int,input().split())
 a = []
 for i in range(N):
@@ -52,11 +45,11 @@ for _ in range(Q):
     q = input()
     if q[0] == "1":
         qi,p,x = map(int,q.split())
-        p = check(p,K,N)
+        p = (p + K) % N
         a[p - 1] = x
     elif q[0] == "2":
         qi,p = map(int,q.split())
-        p = check(p,K,N)
+        p = (p + K) % N
         print(a[p - 1])
     else:
         qi,k = map(int,q.split())
