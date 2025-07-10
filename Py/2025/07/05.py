@@ -80,3 +80,59 @@ for _ in range(T):
     else:
         ans = "Yes"
     print(ans)
+
+
+    T = int(input())
+for _ in range(T):
+    n = int(input())
+    a = list(map(int,input().split()))
+
+    a.sort()
+    negativ_numbers = []
+    positiv_numbers = []
+    for i in range(n):
+        if a[i] < 0:
+            negativ_numbers.append(a[i])
+        else:
+            positiv_numbers.append(a[i])
+    negativ_numbers.sort(reverse = True)
+
+    r_not_positiv = False   
+    first = True
+    if 0 == len(negativ_numbers) or 0 == len(positiv_numbers):
+        r = a[1] / a[0]
+    else:
+        r_not_positiv = True
+        if negativ_numbers[0] * -1 < positiv_numbers[0]:
+            r = positiv_numbers[0] / negativ_numbers[0]
+            first = True
+            print(positiv_numbers[0] ,"/", negativ_numbers[0], "=", r)
+        else:
+            first = False
+            r =  negativ_numbers[0] / positiv_numbers[0]
+            print(negativ_numbers[0] , "/", positiv_numbers[0], "=", r)
+    print(r)
+    print(a)
+    print(negativ_numbers,positiv_numbers)
+    negativ_point = 0
+    positiv_point = 0
+    if r_not_positiv:
+        for _ in range(n):
+            if first:
+                if negativ_numbers[negativ_point] * r == positiv_numbers[positiv_point]:
+                    print(negativ_numbers[negativ_point], positiv_numbers[positiv_point])
+                    first = False
+                    negativ_point += 1
+                    continue
+                else:
+                    break
+            else:
+                if positiv_numbers[positiv_point] * r == negativ_numbers[negativ_point]:
+                    print(positiv_numbers[positiv_point],positiv_numbers[positiv_point] * r, negativ_numbers[negativ_point])
+                    first = True
+                    positiv_point += 1
+                    continue
+                else:
+                    break
+    else:
+        print("positiv")
