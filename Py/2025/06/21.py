@@ -54,21 +54,28 @@ for i in range(Q):
 """
 """
 N,Q = map(int,input().split())
-ans = ""
+server = [[""]]
 pc = dict()
 for i in range(N):
-    pc[i + 1] = ""
+    pc[i + 1] = [[""]]
 
 #多分置き換えと文字列の長さがもんだい
 for i in range(Q):
     query = input()
     if query[0] == "1":
         q,p = map(int,query.split())
-        pc[p] = ans
+        pc[p].append(server[-1])
     elif query[0] == "2":
         q,p,s = query.split()
-        pc[int(p)] = "".join([pc[int(p)],s])
+        pc[int(p)].append(pc[int(p)][-1] + [s])
     else:
         q,p = map(int,query.split())
-        ans = pc[p]
-print(ans)
+        server.append(pc[p][-1])
+
+ans = server[-1]
+ans_N = len(ans)
+for i in range(ans_N):
+    if ans[i] == "":
+        pass
+    else:
+       print(ans[i], end = "")
