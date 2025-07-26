@@ -43,3 +43,5 @@ print("".join(t))
 #lv3
 """
 """
+N,K,X
+for 
