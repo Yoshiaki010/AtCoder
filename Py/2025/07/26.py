@@ -43,5 +43,15 @@ print("".join(t))
 #lv3
 """
 """
-N,K,X
-for 
+N,K,X = map(int,input().split())
+a = set()
+for _ in range(N):
+  a.add(input())
+
+lis_A = list(a)
+lis_A.sort()
+
+ans = []
+for i in range(len(lis_A)):
+  pass
+print(ans)
