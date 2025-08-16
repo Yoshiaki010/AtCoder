@@ -44,14 +44,17 @@ print("".join(t))
 """
 """
 N,K,X = map(int,input().split())
-a = set()
-for _ in range(N):
-  a.add(input())
-
-lis_A = list(a)
-lis_A.sort()
-
+s = [input()]
 ans = []
-for i in range(len(lis_A)):
-  pass
-print(ans)
+
+def make_combination(k, combi):
+    combination = []
+    for i in range(N):
+        if k - 1 < 1:
+            combination.append(combi + [i])
+        else:
+            combination.append(make_combination(k - 1, combi + [i]))
+    return combination
+
+all_combination = make_combination( K, [] )
+print(len(all_combination))
