@@ -60,25 +60,36 @@ print(ans)
 
 #lv4
 N = int(input())
-W = []
-H = []
-B = []
+P = []
 
 for i in range(N):
-    w,h,b = map(int,input().split())
-    W.append(w)
-    H.append(h)
-    B.append(b)
+    P.append(list(map(int,input().split())))
+print(P)
 
-max_happy = 0
+w_sum = 0
 for i in range(N):
-    for j in range(N):
-        if i != j:
-            h = W[i]
-            b = W[j]
-            if h <= b:
-                happy = H[i] + B[j]
-                if max_happy < happy:
-                    max_happy = happy
+    w_sum += P[i][0]
+deadline = w_sum // 2
+print(deadline)
 
-print(max_happy)
+all = dict()
+all[0] = [0,0]
+
+want_h_p = []
+want_h = 0
+for i in range(N):
+    w,h,b = P[i]
+    if h <= b:
+        all[0][1] += b
+    else:
+        want_h_p.append(P[i])
+        want_h += 1
+
+print(all,list(all),want_h_p,want_h)
+
+
+for i in range(want_h):
+    now_all = list(all)
+    for one_patern in now_all:
+        w,h,b = want_h_p[i]
+        nw,nh,nb = one_patern
