@@ -30,7 +30,6 @@ print(ans)
 
 #lv3
 """
-"""
 N,X,Y = map(int,input().split())
 A = list(map(int,input().split()))
 
@@ -44,10 +43,16 @@ for i in range(N):
     if now_g == best_g:
         ans += max_Y
     else:
-        best_Y = max_Y - abs(now_g - best_g) // diff
-        if best_Y < -1:
+        best_Y = max_Y - (now_g - best_g) // diff
+
+        if (now_g - best_g) % diff != 0 or best_Y < 0:
             ans = -1
             break
         else:
             ans += best_Y
 print(ans)
+"""
+
+#lv4
+"""
+"""
