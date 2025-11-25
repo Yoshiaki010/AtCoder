@@ -35,11 +35,12 @@ for i in range(N):
 S = list(map(int,list(input())))
 N = len(S)
 
-pair = -1
+pair = []
 num_list = [0] * 10
 
-pair = S[0]
+pair = [S[0]]
 num_list[S[0]] += 1
+serchmode = 0
 
 print(S)
 print(pair,num_list)
@@ -48,20 +49,26 @@ ans = 0
 for i in range(1,N):
     num_list[S[i]] += 1
 
-    print(pair,num_list,S[i],end = "")
-    if pair + 1 == S[i]: 
-        print("+",end = "")
-        ans += 1
-        if num_list[S[i]] == num_list[pair]:
-            num_list[pair] = 0
-            pair = S[i]
-    elif pair == S[i]:
-        pass
-    else:
-        num_list[pair] = 0
-        pair = S[i]
-    print()
-    print(pair,num_list)
-    print()
+    if serchmode == 0:
+        if pair[0] + 1 == S[i]:
+            ans += 1
+        else:
+            if 1 < len(pair):
+                if pair[1] + 1 == S[i]:
+                    ans += 1
+                    pair = [pair[1],S[i]]
+                else:
+                    num_list[pair[0]] = 0
+                    num_list[pair[1]] = 0
+                    pair = [S[i]]
+            else:
+                num_list[pair[0]] = 0
+                pair = [S[i]]
 
 print(ans)
+
+#lv4
+"""
+print(pow(10,-1,11))
+print(pow(100,-1,11))
+"""
