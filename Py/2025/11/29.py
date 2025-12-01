@@ -26,49 +26,42 @@ for i in range(M):
 """ 
 T = int(input())
 
-for _ in range(2):
+for _ in range(T):
     N,H = map(int,input().split())
-    obj = []
+    case = []
+
     for _ in range(N):
         t,l,u = map(int,input().split())
-        obj.append([t,l,u])
-    print(obj)
+        case.append([t,l,u])
 
-    last_t,last_l,last_u = obj[-1]
-    now = [last_t,last_l,last_u]
-    for i in range(N - 1):
-        back_t,back_l,back_u = obj[N - i - 2]
+    now = [0,H,H]
+
+    ans = "Unknow"
+    for i in range(N):
+        next_t,next_l,next_u = case[i]
         now_t,now_l,now_u = now
-        print()
-        diff = now_t - back_t
+ 
+        move = next_t - now_t
+ 
+        max_u = now_u + move
+        min_l = now_l - move
 
-        if now_u <= back_l:
-            if now_u <= back_u:
-                if now_l <= back_l:
-                    
+        now = [next_t, max(min_l, next_l), min(max_u, next_u)]
+        now_t, now_l, now_u = now
 
+        if next_l <= now_l and now_l <= next_u and next_l <= now_u and  now_u <= next_u:
+            continue
         else:
+            ans = "No"
 
+        if now_l <= 0:
+            ans = "No"
+
+    else:
+        if ans == "Unknow":
+            ans = "Yes"
+
+    print(ans)
 
 """
-        if now_u < back_l:
-            #全て下に飛び出てる　under out
-            print(f"[{now_l} - {now_u}] < [{back_l} ~ {back_u}]")
-            if back_l - now_u <= diff:
-                now = [back_t,back_l,(now_u + diff)]
-        else:
-            if now_u < back_u:
-                #内側にいる inside
-                print(f"[{back_l} ~ [{now_l} - {now_u}] ~ {back_u}]")
-            else:
-                if now_l < back_u:
-                    if now_l < back_l:
-                        #両側(now_l,now_u)が飛び出ている
-                        print(f"[{now_l} - [{back_l} ~ {back_u}] - {now_u}]")
-                    else:
-                        #上側(now_u)が飛び出てる
-                        print(f"[{back_l} ~ [{now_l} -~ {back_u}] - {now_u}]")
-                else:
-                    # 全て上に飛び出ている
-                    print(f"[{back_l} ~ {back_u}] < [{now_l} - {now_u}]")
 """
