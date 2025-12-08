@@ -42,15 +42,10 @@ for _ in range(2):
         print()
         diff = now_t - back_t
 
-        if now_u <= back_l:
-            if now_u <= back_u:
-                if now_l <= back_l:
-                    
+        if now_u == back_l:
+            if now_l == back_l:
+                
 
-        else:
-
-
-"""
         if now_u < back_l:
             #全て下に飛び出てる　under out
             print(f"[{now_l} - {now_u}] < [{back_l} ~ {back_u}]")
@@ -71,4 +66,3 @@ for _ in range(2):
                 else:
                     # 全て上に飛び出ている
                     print(f"[{back_l} ~ {back_u}] < [{now_l} - {now_u}]")
-"""
