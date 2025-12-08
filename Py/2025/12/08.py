@@ -9,7 +9,6 @@ print(ans)
 
 #lv2
 """
-"""
 N = int(input())
 A = list(map(int,input().split()))
 
@@ -22,20 +21,33 @@ for l in range(N):
     for r in range(N):
         if l <= r:
             now_sum = ruiseki[r + 1] - ruiseki[l]
-            print(l, r, now_sum)
-            for i in range(r - l):
-                print(i)
+            for i in range(r - l + 1):
                 if now_sum % A[i + l] == 0:
                     break
-                else:
-                    continue
             else:
-                print("+")
                 ans += 1
-        else:
-            continue
 print(ans)
+"""
 
 #lv3
+"""
+N = int(input())
+A = list(map(int,input().split()))
+
+max_down_i = 1
+ans = 0
+for i in range(N):
+    if i < max_down_i:
+        ans += 1
+    else:
+        break
+
+    if max_down_i < i + A[i]:
+        max_down_i = i + A[i]
+
+print(ans)
+"""
+
+#lv4
 """
 """
