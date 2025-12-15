@@ -51,64 +51,61 @@ for _ in range(M):
 print(ans)
 """
 
+"""
 #lv4
 H,W = map(int,input().split())
-S = []
-for i in range(H):
-    S.append(list(input()))
+S = [["#"] * (W + 2)]
+for _ in range(H):
+    S.append(list("#" + input() + "#"))
+S.append(["#"] * (W + 2))
 
 TP = dict()
 for i in range(26):
     TP[chr(97 + i)] = []
 
-for i in range(H):
-    for j in range(W):
+for i in range(H + 2):
+    for j in range(W + 2):
         if "a" <= S[i][j] <= "z":
             TP[S[i][j]].append((i,j))
 
-print(TP)
+walked = []
+for _ in range(H + 2):
+    walked.append([-1] * (W + 2))
 
-def move(i, j, k):
-    print(i,j,"=",S[i][j])
+nexts = [[1, 1, 0]]
 
-    if i == H and j == W:
-        return k
+walked[1][1] = 0
+while 0 < len(nexts):
+    next_nexts = []
+    for next in nexts:
+        i, j, m = next
+        if S[i - 1][j] != "#" and walked[i - 1][j] == -1:
+            next_nexts.append([i - 1, j, m + 1])
+            walked[i - 1][j] = m + 1
+        if S[i + 1][j] != "#" and walked[i + 1][j] == -1:
+            next_nexts.append([i + 1, j, m + 1])
+            walked[i + 1][j] = m + 1
+        if S[i][j - 1] != "#" and walked[i][j - 1] == -1:
+            next_nexts.append([i, j - 1, m + 1])
+            walked[i][j - 1] = m + 1
+        if S[i][j + 1] != "#" and walked[i][j + 1] == -1:
+            next_nexts.append([i, j + 1, m + 1])
+            walked[i][j + 1] = m + 1
+        if S[i][j] != ".":
+            for go in TP[S[i][j]]:
+                if go != (i,j) and walked[go[0]][go[1]] == -1:
+                    next_nexts.append([go[0], go[1], m + 1])
+                    walked[go[0]][go[1]] = m + 1
+            TP[S[i][j]] = []
+    nexts = next_nexts
 
-    if S[i][j] == ".":
-        S[i][j] = "#"
-        #up
-        if -1 < i - 1:
-            k = move(i + 1, j, k + 1)
-        #down
-        if i + 1 < H:
-            k = move(i - 1, j - 1, k + 1)
-        #right
-        if j + 1 < W:
-            k = move(i, j + 1, k + 1)
-        #left
-        if -1 < j - 1:
-            k =  move(i, j - 1, k + 1)
-           
-    return k
+#for i in range(H + 2):
+#    print(*walked[i])
 
-for i in range(H):
-    print(*S[i])
-
-ans = move(0,0,0)
-
-for i in range(H):
-    print(*S[i])
-
-if ans == 0:
+ans = 0
+if walked[H][W] != -1:
+    ans = walked[H][W]
+else:
     ans = -1
-
 print(ans)
-"""
-    elif "a" <= S[i][j] <= "z":
-            go = TP[S[i][j]]
-            new_TP = []
-            for i in range(len(go)):
-                if go[i] != (i,j):
-                    print("TP!")
-                    return 0 + move(*go[i], k + 1)                
 """
