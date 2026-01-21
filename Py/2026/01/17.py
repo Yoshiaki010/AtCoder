@@ -70,4 +70,30 @@ for _ in range(Q):
 
 #lv3
 """
+N, K, X = map(int,input().split())
+A = list(map(int,input().split()))
+
+A.sort(reverse=True)
+
+sake = A[N - K:]
+
+#print(A, sake, X, N, K)
+
+ans = N - K
+drink = 0
+for i in range(K):
+    drink += sake[i]
+    ans += 1
+    if X <= drink:
+        break
+    else:
+        continue
+else:
+    ans = -1
+
+print(ans)
+"""
+
+#lv4
+"""
 """
