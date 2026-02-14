@@ -15,46 +15,21 @@ print(ans)
 
 #lvB
 """
-"""
-N,K = input().split()
-
-def make(n, keta, s, c):
-    for i in range(10):
-        new = n * 10 + i
-        if new <= int(N):
-            if keta + 1 < len(N) and s + i < int(K):
-               print("|call", new, keta + 1, s + i, c)
-               re = make(new, keta + 1, s + i, c)
-               c += re
-               print("-", new, c, re)
-               print()
-            else:
-                if s + i == int(K):
-                    c += 1
-                    print(new, s + i, "+1")
-                else:
-#                    print(new, s + i, "+0")
-                    pass
-    return c
+N,K = map(int,input().split())
 
 ans = 0
-for i in range(10):
-    if i == int(K):
+for i in range(1, N + 1):
+    str_i = str(i)
+    sum_i = 0
+    for c in str_i:
+        sum_i += int(c)
+    if sum_i == K:
         ans += 1
-    if i <= int(N[0]):
-        if i != 0:
-            print("call", i)
-            re = make(i, 1, i, 0)
-            ans += re
-            print(re)
-
+    else:
+     continue
+     
 print(ans)
 """
-if len(N) * 9 < int(K):
-    ans = 0
-else:
-"""
-
 
 #lvC
 """
