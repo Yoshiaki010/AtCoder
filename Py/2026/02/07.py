@@ -34,6 +34,12 @@ print(ans)
 #lvC
 """
 """
+N = 10 ** 5 * 3
+print(N)
+max = N
+min = N // 2 + N % 2
+print(f"k = {max} - {min} = {max - min}")
+
 
 #lvD
 """
