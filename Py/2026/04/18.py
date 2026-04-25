@@ -55,35 +55,5 @@ for i in range(M):
 print(F_dict,F_dict_N)
 
 ans = 1
-changer = list(F_dict[1])
-changer_N = len(changer)
-changedMan = {1}
-print(changer,changer_N)
-for _ in range(M):
-    new_changer = set()
-    new_changer_N = 0
-    for m_i in changer:
-        if ans < m_i:
-            ans = m_i
-        if m_i in changedMan:
-            continue
-        else:
-            changedMan.add(m_i)
-            new_changer.add(m_i)
-            new_changer_N += 1
-    changer = list(new_changer)
-    changer_N = new_changer_N
-
-    if changer_N == 0:
-        break
-    else:
-        next_changer = set()
-        next_changer_N = 0
-        for m_i in changer:
-            next_changer.update(F_dict[m_i])
-            next_changer_N += F_dict_N[m_i - 1]
-
-        changer = list(next_changer)
-        changer_N = next_changer_N
 
 print(ans)
