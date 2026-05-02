@@ -45,10 +45,12 @@ ans = 0
 for i in range(N):
     if S[i] != frontS:
         continuePuls += 1
+        continuePuls %= 998244353
     else:
         continuePuls = 1
     frontS = S[i]
     ans += continuePuls
+    ans %= 998244353
 print(ans)
 
 
